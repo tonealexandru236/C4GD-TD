@@ -33,7 +33,7 @@ public class MainButtons : MonoBehaviour
     public void game_speed()
     {
         if (speed == 1) { speed = 2; speedup.SetText("x2"); }
-        else { speed = 1; speedup.SetText("x1");
+        else { speed = 1; speedup.SetText("x1"); }
+        Time.timeScale = speed;
     }
-}
 }
