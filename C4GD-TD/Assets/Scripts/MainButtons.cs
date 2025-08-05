@@ -23,6 +23,8 @@ public class MainButtons : MonoBehaviour
     {
         instance = this;
 
+        MainButtons.instance.enemies.Add(GameObject.Find("Enemy1"));
+
         balance = 500;
         speedup.SetText("x1");
         Time.timeScale = speed;
@@ -54,6 +56,7 @@ public class MainButtons : MonoBehaviour
     }
 
     public List<GameObject> ranges;
+    public List<GameObject> enemies;
 
     public void dis_all_ranges()
     {
