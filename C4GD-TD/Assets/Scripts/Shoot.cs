@@ -21,8 +21,12 @@ public class Shoot : MonoBehaviour
             yield return new WaitForSeconds(firerate / 2);
 
             while (count_enemies() == null)
+            {
                 yield return new WaitForEndOfFrame();
+                gameObject.GetComponent<Animator>().SetBool("can_shoot", false);
+            }
 
+            gameObject.GetComponent<Animator>().SetBool("can_shoot", true);
             yield return new WaitForSeconds(firerate/2);
 
             GameObject next_target = count_enemies();
@@ -30,12 +34,16 @@ public class Shoot : MonoBehaviour
             {
                 Debug.Log("shoot");
 
+                /// Shooting animation here
+
                 GameObject ist = Instantiate(projectile);
                 ist.transform.position = gameObject.transform.position;
                 ist.GetComponent<Target_Player>().target = next_target;
 
                 //MainButtons.instance.enemies.Remove(next_target);
             }
+            else
+                gameObject.GetComponent<Animator>().SetBool("can_shoot", false);
         }
     }
 
