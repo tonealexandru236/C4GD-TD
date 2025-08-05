@@ -24,8 +24,12 @@ public class Shoot : MonoBehaviour
             if(next_target != null)
             {
                 Debug.Log("shoot");
-                Destroy(next_target);
-                MainButtons.instance.enemies.Remove(next_target);
+
+                GameObject ist = Instantiate(projectile);
+                ist.transform.position = gameObject.transform.position;
+                ist.GetComponent<Target_Player>().target = next_target;
+
+                //MainButtons.instance.enemies.Remove(next_target);
             }
         }
     }
@@ -43,7 +47,7 @@ public class Shoot : MonoBehaviour
             {
                 cnt++;
                 Debug.Log("Ballon detected"); ///IT DETECTS
-                if(maxx - enemy.GetComponent<SplineAnimate>().NormalizedTime > 0)
+                if(enemy.GetComponent<SplineAnimate>().NormalizedTime > maxx)
                 {
                     maxx = enemy.GetComponent<SplineAnimate>().NormalizedTime;
                     rez = enemy;
