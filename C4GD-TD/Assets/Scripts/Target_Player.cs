@@ -20,4 +20,13 @@ public class Target_Player : MonoBehaviour
     {
         transform.position += dir * Time.deltaTime * speed;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            collision.gameObject.GetComponent<Health>().hp--;
+            Destroy(gameObject);
+        }
+    }
 }
