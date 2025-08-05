@@ -709,7 +709,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 89661c6e09d92764e8450a1dedc550ec, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -1157,7 +1157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Canvas: {fileID: 1123711528}
   Tower: {fileID: 7208650400429257083, guid: 2a95e752f04b6ff4bb701987bbc6d719, type: 3}
-  price: 40
+  price: 300
   pricetag: {fileID: 141467862}
   did_drag: 0
 --- !u!1 &499404658
@@ -2239,7 +2239,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 085297ecd74e5ef4d8920c2a9712dd88, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b6edecfa342cb4908b0887a861457274, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2270,8 +2270,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Canvas: {fileID: 1123711528}
-  Tower: {fileID: 0}
-  price: 0
+  Tower: {fileID: 8929470566902585317, guid: 2c7a8e1b7c71c9f48b43f1381d56c342, type: 3}
+  price: 200
   pricetag: {fileID: 561472401}
   did_drag: 0
 --- !u!1 &903507497
@@ -3772,6 +3772,7 @@ MonoBehaviour:
   not_enough: {fileID: 329035689}
   money: {fileID: 357615701}
   balance: 0
+  ranges: []
 --- !u!1 &1617827342
 GameObject:
   m_ObjectHideFlags: 0

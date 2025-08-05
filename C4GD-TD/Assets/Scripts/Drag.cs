@@ -48,7 +48,7 @@ public class Drag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
             GameObject twr = Instantiate(Tower);
             twr.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            twr.transform.position = new Vector3(twr.transform.position.x, twr.transform.position.y, 10);
+            twr.transform.position = new Vector3(twr.transform.position.x, twr.transform.position.y, 1);
 
             MainButtons.instance.ranges.Add(twr.transform.GetChild(0).gameObject);
 
