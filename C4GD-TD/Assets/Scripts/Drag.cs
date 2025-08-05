@@ -7,13 +7,24 @@ using UnityEngine.UI;
 public class Drag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     public GameObject Canvas;
+    public GameObject Tower;
     private GameObject ist = null;
+    public int price;
+
+    public bool did_drag;
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        ist = Instantiate(gameObject, Canvas.transform);
-        Destroy(ist.GetComponent<Drag>());
-        ist.GetComponent<Image>().color = new Color(ist.GetComponent<Image>().color.r, ist.GetComponent<Image>().color.g, ist.GetComponent<Image>().color.b, 0.3f);
+        if (MainButtons.instance.balance >= price)
+        {
+            did_drag = true;
+
+            ist = Instantiate(gameObject, Canvas.transform);
+            Destroy(ist.GetComponent<Drag>());
+            ist.GetComponent<Image>().color = new Color(ist.GetComponent<Image>().color.r, ist.GetComponent<Image>().color.g, ist.GetComponent<Image>().color.b, 0.3f);
+        }
+        else
+            MainButtons.instance.not_enough_money();
     }
 
     public void Update()
@@ -26,7 +37,21 @@ public class Drag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        Destroy(ist);
-        ist = null;
+        if (did_drag == true)
+        {
+            Destroy(ist);
+            did_drag = false;
+            ist = null;
+
+            GameObject twr = Instantiate(Tower);
+            twr.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            twr.transform.position = new Vector3(twr.transform.position.x, twr.transform.position.y, 0);
+        }
     }
+
+    void Start()
+    {
+        did_drag = false;
+    }
+
 }
