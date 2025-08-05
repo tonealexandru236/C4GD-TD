@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Tower : MonoBehaviour
 {
@@ -27,5 +28,17 @@ public class Tower : MonoBehaviour
             MainButtons.instance.cant_place_tower();
             Destroy(gameObject);
         }
+    }
+
+    private void OnMouseDown()
+    {
+        MainButtons.instance.dis_all_ranges();
+        gameObject.transform.GetChild(0).GetComponent<Animator>().Play("range_app");
+    }
+
+    private void Update()
+    {
+        //if(Input.GetMouseButtonDown(0) && gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().color.a != 0)
+        //    gameObject.transform.GetChild(0).GetComponent<Animator>().Play("range_dis");
     }
 }
