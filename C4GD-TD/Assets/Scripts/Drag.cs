@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -10,6 +11,8 @@ public class Drag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public GameObject Tower;
     private GameObject ist = null;
     public int price;
+
+    public TMP_Text pricetag;
 
     public bool did_drag;
 
@@ -45,12 +48,15 @@ public class Drag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
             GameObject twr = Instantiate(Tower);
             twr.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            twr.transform.position = new Vector3(twr.transform.position.x, twr.transform.position.y, 0);
+            twr.transform.position = new Vector3(twr.transform.position.x, twr.transform.position.y, 10);
+
+            twr.GetComponent<Tower>().price = price;
         }
     }
 
     void Start()
     {
+        pricetag.SetText(price + " $");
         did_drag = false;
     }
 

@@ -15,7 +15,7 @@ public class Tower : MonoBehaviour
     private bool check = false;
     IEnumerator end_check()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.04f);
         check = true;
         MainButtons.instance.balance -= price;
     }

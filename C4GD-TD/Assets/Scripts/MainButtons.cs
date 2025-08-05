@@ -22,7 +22,7 @@ public class MainButtons : MonoBehaviour
     {
         instance = this;
 
-        balance = 200;
+        balance = 500;
         speedup.SetText("x1");
         Time.timeScale = speed;
     }
