@@ -18,10 +18,12 @@ public class Shoot : MonoBehaviour
     {
         while(true)
         {
-            while(count_enemies() == null)
+            yield return new WaitForSeconds(firerate / 2);
+
+            while (count_enemies() == null)
                 yield return new WaitForEndOfFrame();
 
-            yield return new WaitForSeconds(firerate);
+            yield return new WaitForSeconds(firerate/2);
 
             GameObject next_target = count_enemies();
             if(next_target != null)

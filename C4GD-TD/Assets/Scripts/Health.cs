@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Splines;
 
 public class Health : MonoBehaviour
 {
@@ -14,9 +15,11 @@ public class Health : MonoBehaviour
 
     void Update()
     {
-        if(hp == 0)
+        if(hp <= 0 && hp >= -100)
         {
-            hp--;
+            gameObject.GetComponent<SplineAnimate>().Pause();
+
+            hp = -200;
             gameObject.GetComponent<Animator>().Play("pop1");
             MainButtons.instance.balance += money_reward;
 

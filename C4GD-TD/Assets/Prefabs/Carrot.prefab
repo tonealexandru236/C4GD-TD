@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 29.575, y: 29.575, z: 29.575}
+  m_LocalScale: {x: 31.130999, y: 31.130999, z: 31.130999}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5564228394607080110}
@@ -120,6 +120,7 @@ GameObject:
   - component: {fileID: 1044547152200335753}
   - component: {fileID: 2501004897514677832}
   - component: {fileID: 5063944849158700068}
+  - component: {fileID: 1813611566582593856}
   m_Layer: 0
   m_Name: Carrot
   m_TagString: Tower
@@ -283,5 +284,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 8990527835652522762, guid: ce7edffb7cdc1e94496aa2e83ecc4652, type: 3}
-  firerate: 0.8
+  firerate: 0.7
   range: 2.5
+--- !u!95 &1813611566582593856
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6543189710455305009}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 820d764318a87754dbcedcd595b7fbc7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

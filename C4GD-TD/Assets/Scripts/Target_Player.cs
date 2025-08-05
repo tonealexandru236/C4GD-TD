@@ -9,6 +9,7 @@ public class Target_Player : MonoBehaviour
     public GameObject target;
     private Vector3 dir;
     public float speed;
+    public int damage;
 
     void Start()
     {
@@ -25,7 +26,7 @@ public class Target_Player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            collision.gameObject.GetComponent<Health>().hp--;
+            collision.gameObject.GetComponent<Health>().hp -= damage;
             Destroy(gameObject);
         }
     }
