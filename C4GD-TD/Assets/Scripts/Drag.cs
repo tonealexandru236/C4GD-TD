@@ -50,6 +50,8 @@ public class Drag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             twr.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             twr.transform.position = new Vector3(twr.transform.position.x, twr.transform.position.y, 10);
 
+            MainButtons.instance.ranges.Add(twr.transform.GetChild(0).gameObject);
+
             twr.GetComponent<Tower>().price = price;
         }
     }

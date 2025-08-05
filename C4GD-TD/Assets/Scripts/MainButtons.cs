@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.Rendering.Universal;
 
 public class MainButtons : MonoBehaviour
@@ -52,6 +53,16 @@ public class MainButtons : MonoBehaviour
 
     }
 
+    public List<GameObject> ranges;
+
+    public void dis_all_ranges()
+    {
+        foreach (GameObject range in ranges)
+        {
+            range.GetComponent<Animator>().Play("range_dis");
+        }
+    }
+
     public void game_speed()
     {
         if (speed == 1) { speed = 2; speedup.SetText("x2"); }
@@ -63,5 +74,18 @@ public class MainButtons : MonoBehaviour
     private void Update()
     {
         money.SetText(balance + " $");
+
+        /*if (Input.GetMouseButtonDown(0)) {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                if(hit.transform.gameObject.CompareTag("Tower") && hit.transform.GetChild(0).GetComponent<SpriteRenderer>().color.a != 1)
+                    gameObject.transform.GetChild(0).GetComponent<Animator>().Play("range_app");
+               //else
+
+            }
+        }*/
     }
 }
