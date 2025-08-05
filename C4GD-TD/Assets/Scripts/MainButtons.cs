@@ -25,7 +25,7 @@ public class MainButtons : MonoBehaviour
 
         MainButtons.instance.enemies.Add(GameObject.Find("Enemy1"));
 
-        balance = 500;
+        balance = 350;
         speedup.SetText("x1");
         Time.timeScale = speed;
     }
