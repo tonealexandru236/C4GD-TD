@@ -100,12 +100,44 @@ public class MainButtons : MonoBehaviour
     public TMP_Text upg_upg;
     public TMP_Text upg_money;
 
-    public void Upgrade_screen(Sprite tower, string name, float level, string upg, float money)
+    public Button upgrade_but;
+    public GameObject actual_tower;
+
+    public void Upgrade_screen(Sprite tower, string name, float level, string upg, float money, GameObject tower_obj)
     {
-        upg_tower.sprite = tower; ;
+        if(level == 5) upgrade_but.gameObject.SetActive(false);
+        else upgrade_but.gameObject.SetActive(true);
+
+        upg_tower.sprite = tower;
         upg_name.SetText(name);
-        upg_level.SetText(level.ToString());
+        upg_level.SetText("Level " + level.ToString());
         upg_upg.SetText(upg);
         upg_money.SetText(money.ToString() + " $");
+        actual_tower = tower_obj;
+    }
+
+    public void Do_Upgrade()
+    {
+        if (actual_tower.GetComponent<SpriteRenderer>().sprite.name.Substring(0, 3) == "car")
+        {
+            if (upg_level.text == "Level 1"){
+                actual_tower.GetComponent<Shoot>().range += 0.5f;
+                actual_tower.transform.GetChild(0).localScale = new Vector3(actual_tower.transform.GetChild(0).localScale.x * 1.1f, actual_tower.transform.GetChild(0).localScale.y * 1.1f, actual_tower.transform.GetChild(0).localScale.z * 1.1f);
+            }
+            else if (upg_level.text == "Level 2") {
+                actual_tower.GetComponent<Shoot>().amt += 1;
+            }
+            else if (upg_level.text == "Level 3"){
+                actual_tower.GetComponent<Shoot>().firerate -= 0.2f;
+            }
+            else if (upg_level.text == "Level 4"){
+                actual_tower.GetComponent<Shoot>().amt += 1;
+            }
+        }
+
+        actual_tower.GetComponent<Tower>().level++;
+        actual_tower.transform.localScale = new Vector3(actual_tower.transform.localScale.x * 1.05f, actual_tower.transform.localScale.y * 1.05f, actual_tower.transform.localScale.z * 1.05f);
+        actual_tower.transform.GetChild(0).localScale = new Vector3(actual_tower.transform.GetChild(0).localScale.x / 1.05f, actual_tower.transform.GetChild(0).localScale.y / 1.05f, actual_tower.transform.GetChild(0).localScale.z / 1.05f);
+        StartCoroutine(actual_tower.GetComponent<Tower>().show_update());
     }
 }

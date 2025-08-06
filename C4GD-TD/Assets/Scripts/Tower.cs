@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class Tower : MonoBehaviour
 {
-    private int level;
+    public int level;
     public int price;
 
     private float firerate;
@@ -47,20 +47,34 @@ public class Tower : MonoBehaviour
 
     private void OnMouseDown()
     {
-        MainButtons.instance.dis_all_ranges();
+        if (gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().color.a == 1)
+            MainButtons.instance.dis_all_ranges();
 
         if (gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().color.a == 0)
             StartCoroutine(show_update());
 
-        gameObject.transform.GetChild(0).GetComponent<Animator>().Play("range_app");   
+        gameObject.transform.GetChild(0).GetComponent<Animator>().Play("range_app");
     }
 
-    IEnumerator show_update()
+    public IEnumerator show_update()
     {
         //is_upg_open = true;
 
         yield return new WaitForSeconds(0.1f);
-        MainButtons.instance.Upgrade_screen(GetComponent<SpriteRenderer>().sprite, gameObject.name, level, "+ upgrade +", 300);
+
+        string actual_name = "", actual_upg = "Max Level";
+        float actual_cost = 0;
+
+        if (GetComponent<SpriteRenderer>().sprite.name.Substring(0,3) == "car")
+        {
+            actual_name = "Carrot Archer";
+            if (level == 1) { actual_upg = "Increase Range by 1"; actual_cost = 200; }
+            else if (level == 2) { actual_upg = "Shoots two carrots at the same time"; actual_cost = 300; }
+            else if (level == 3) { actual_upg = "Decrease attack speed by 0.2s"; actual_cost = 300; }
+            else if (level == 4) { actual_upg = "Shoots three carrots at the same time"; actual_cost = 500; }
+        }
+
+        MainButtons.instance.Upgrade_screen(GetComponent<SpriteRenderer>().sprite, actual_name, level, actual_upg, actual_cost, gameObject);
         upgrade_screen.GetComponent<Animator>().Play("upgrade_left", 0, 0);
     }
 
