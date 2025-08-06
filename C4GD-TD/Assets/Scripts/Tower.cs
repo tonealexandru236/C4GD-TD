@@ -17,7 +17,7 @@ public class Tower : MonoBehaviour
 
     private void Start()
     {
-        level = 1; is_upg_open = false;
+        level = 1; //is_upg_open = false;
         firerate = GetComponent<Shoot>().firerate;
         range = GetComponent<Shoot>().range;
 
@@ -43,13 +43,13 @@ public class Tower : MonoBehaviour
         }
     }
 
-    private bool is_upg_open;
+    //public bool is_upg_open;
 
     private void OnMouseDown()
     {
         MainButtons.instance.dis_all_ranges();
 
-        if (is_upg_open == false)
+        if (gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().color.a == 0)
             StartCoroutine(show_update());
 
         gameObject.transform.GetChild(0).GetComponent<Animator>().Play("range_app");   
@@ -57,7 +57,7 @@ public class Tower : MonoBehaviour
 
     IEnumerator show_update()
     {
-        is_upg_open = true;
+        //is_upg_open = true;
 
         yield return new WaitForSeconds(0.1f);
         MainButtons.instance.Upgrade_screen(GetComponent<SpriteRenderer>().sprite, gameObject.name, level, "+ upgrade +", 300);

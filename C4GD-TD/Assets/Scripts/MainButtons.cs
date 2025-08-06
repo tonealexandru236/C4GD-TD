@@ -71,6 +71,7 @@ public class MainButtons : MonoBehaviour
 
         foreach (GameObject range in ranges)
         {
+            //range.transform.parent.GetComponent<Tower>().is_upg_open = true;
             range.GetComponent<Animator>().Play("range_dis");
         }
     }
