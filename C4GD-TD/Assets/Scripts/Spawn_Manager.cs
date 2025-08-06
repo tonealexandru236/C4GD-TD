@@ -35,13 +35,13 @@ public class Spawn_Manager : MonoBehaviour
 
     IEnumerator wave1()
     {
-        StartCoroutine(spawn_bloons(enemy4, 1.2f, 10)); yield return new WaitForSeconds(15f);
+        StartCoroutine(spawn_bloons(enemy4, 1.2f, 8)); yield return new WaitForSeconds(15f);
         StartCoroutine(spawn_bloons(enemy4, 1f, 12)); yield return new WaitForSeconds(15f);
         StartCoroutine(spawn_bloons(enemy4, 0.72f, 5)); yield return new WaitForSeconds(7f);
         StartCoroutine(spawn_bloons(enemy4, 0.72f, 5)); yield return new WaitForSeconds(7f);
         StartCoroutine(spawn_bloons(enemy4, 0.72f, 5)); yield return new WaitForSeconds(7f);
         StartCoroutine(spawn_bloons(enemy4, 0.9f, 20)); yield return new WaitForSeconds(21f);
-        StartCoroutine(spawn_bloons(enemy4, 0.82f, 14));
+        StartCoroutine(spawn_bloons(enemy4, 0.8f, 14));
 
         while(MainButtons.instance.enemies.Count > 0) yield return new WaitForSeconds(1f);
         yield return new WaitForSeconds(5f);
@@ -54,11 +54,11 @@ public class Spawn_Manager : MonoBehaviour
     IEnumerator wave2()
     {
         StartCoroutine(spawn_bloons(enemy4, 0.62f, 18)); yield return new WaitForSeconds(16f);
-        StartCoroutine(spawn_bloons(enemy2, 1f, 6)); yield return new WaitForSeconds(13f);
-        StartCoroutine(spawn_bloons(enemy2, 0.9f, 8)); yield return new WaitForSeconds(13f);
-        StartCoroutine(spawn_bloons(enemy2, 1f, 12)); StartCoroutine(spawn_bloons(enemy4, 2.5f, 6)); yield return new WaitForSeconds(18f);
-        StartCoroutine(spawn_bloons(enemy2, 0.7f, 10)); yield return new WaitForSeconds(8f);
-        StartCoroutine(spawn_bloons(enemy2, 0.7f, 8)); yield return new WaitForSeconds(14f);
+        StartCoroutine(spawn_bloons(enemy2, 1.2f, 5)); yield return new WaitForSeconds(14f);
+        StartCoroutine(spawn_bloons(enemy2, 0.9f, 7)); yield return new WaitForSeconds(14f);
+        StartCoroutine(spawn_bloons(enemy2, 1f, 10)); StartCoroutine(spawn_bloons(enemy4, 2.5f, 6)); yield return new WaitForSeconds(20f);
+        StartCoroutine(spawn_bloons(enemy2, 0.7f, 8)); yield return new WaitForSeconds(10f);
+        StartCoroutine(spawn_bloons(enemy2, 0.7f, 8)); yield return new WaitForSeconds(10f);
         StartCoroutine(spawn_bloons(enemy2, 0.8f, 14)); StartCoroutine(spawn_bloons(enemy4, 2f, 8)); yield return new WaitForSeconds(24f);
         StartCoroutine(spawn_bloons(enemy2, 0.65f, 20));
 

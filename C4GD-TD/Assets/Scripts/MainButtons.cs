@@ -30,7 +30,7 @@ public class MainButtons : MonoBehaviour
         instance = this;
 
         player_health = 80;
-        balance = 300;
+        balance = 310;
         speedup.SetText("x1");
         Time.timeScale = speed;
     }
