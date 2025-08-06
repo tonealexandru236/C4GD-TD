@@ -25,6 +25,8 @@ public class MainButtons : MonoBehaviour
     public int balance;
     public int player_health;
 
+    public GameObject upgrade_screen;
+
     private void Start()
     {
         instance = this;
@@ -65,6 +67,8 @@ public class MainButtons : MonoBehaviour
 
     public void dis_all_ranges()
     {
+        upgrade_screen.GetComponent<Animator>().Play("upgrades_right", 0, 0);
+
         foreach (GameObject range in ranges)
         {
             range.GetComponent<Animator>().Play("range_dis");
@@ -87,5 +91,20 @@ public class MainButtons : MonoBehaviour
         hpbar_txt.SetText(player_health.ToString());
 
         if (player_health <= 0) SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public Image upg_tower;
+    public TMP_Text upg_name;
+    public TMP_Text upg_level;
+    public TMP_Text upg_upg;
+    public TMP_Text upg_money;
+
+    public void Upgrade_screen(Sprite tower, string name, float level, string upg, float money)
+    {
+        upg_tower.sprite = tower; ;
+        upg_name.SetText(name);
+        upg_level.SetText(level.ToString());
+        upg_upg.SetText(upg);
+        upg_money.SetText(money.ToString() + " $");
     }
 }

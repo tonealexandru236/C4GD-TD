@@ -3,13 +3,26 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class Tower : MonoBehaviour
 {
+    private int level;
     public int price;
+
+    private float firerate;
+    private float range;
+
+    public GameObject upgrade_screen;
 
     private void Start()
     {
+        level = 1; is_upg_open = false;
+        firerate = GetComponent<Shoot>().firerate;
+        range = GetComponent<Shoot>().range;
+
+        upgrade_screen = GameObject.Find("Canvas").transform.Find("Upgrades").gameObject;
+
         StartCoroutine(end_check());
     }
 
@@ -30,10 +43,25 @@ public class Tower : MonoBehaviour
         }
     }
 
+    private bool is_upg_open;
+
     private void OnMouseDown()
     {
         MainButtons.instance.dis_all_ranges();
-        gameObject.transform.GetChild(0).GetComponent<Animator>().Play("range_app");
+
+        if (is_upg_open == false)
+            StartCoroutine(show_update());
+
+        gameObject.transform.GetChild(0).GetComponent<Animator>().Play("range_app");   
+    }
+
+    IEnumerator show_update()
+    {
+        is_upg_open = true;
+
+        yield return new WaitForSeconds(0.1f);
+        MainButtons.instance.Upgrade_screen(GetComponent<SpriteRenderer>().sprite, gameObject.name, level, "+ upgrade +", 300);
+        upgrade_screen.GetComponent<Animator>().Play("upgrade_left", 0, 0);
     }
 
     private void Update()

@@ -209,6 +209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   price: 40
+  upgrade_screen: {fileID: 0}
 --- !u!50 &-8803724781426104096
 Rigidbody2D:
   serializedVersion: 4

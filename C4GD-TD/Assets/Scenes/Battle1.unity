@@ -2143,7 +2143,7 @@ GameObject:
   - component: {fileID: 626269926}
   - component: {fileID: 626269925}
   m_Layer: 5
-  m_Name: Text (TMP) (2)
+  m_Name: upg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4629,8 +4629,14 @@ MonoBehaviour:
   hpbar_txt: {fileID: 1731114121}
   balance: 0
   player_health: 0
+  upgrade_screen: {fileID: 625725042}
   ranges: []
   enemies: []
+  upg_tower: {fileID: 331722225}
+  upg_name: {fileID: 68746484}
+  upg_level: {fileID: 1540611189}
+  upg_upg: {fileID: 626269925}
+  upg_money: {fileID: 1243899445}
 --- !u!114 &1563611809
 MonoBehaviour:
   m_ObjectHideFlags: 0
