@@ -122,7 +122,7 @@ public class MainButtons : MonoBehaviour
         {
             if (upg_level.text == "Level 1"){
                 actual_tower.GetComponent<Shoot>().range += 0.5f;
-                actual_tower.transform.GetChild(0).localScale = new Vector3(actual_tower.transform.GetChild(0).localScale.x * 1.1f, actual_tower.transform.GetChild(0).localScale.y * 1.1f, actual_tower.transform.GetChild(0).localScale.z * 1.1f);
+                actual_tower.transform.GetChild(0).localScale = new Vector3(actual_tower.transform.GetChild(0).localScale.x * 1.105f, actual_tower.transform.GetChild(0).localScale.y * 1.105f, actual_tower.transform.GetChild(0).localScale.z * 1.105f);
             }
             else if (upg_level.text == "Level 2") {
                 actual_tower.GetComponent<Shoot>().amt += 1;
@@ -134,10 +134,30 @@ public class MainButtons : MonoBehaviour
                 actual_tower.GetComponent<Shoot>().amt += 1;
             }
         }
+        else if (actual_tower.GetComponent<SpriteRenderer>().sprite.name.Substring(0, 3) == "app")
+        {
+            if (upg_level.text == "Level 1")
+            {
+                actual_tower.GetComponent<Shoot>().range += 0.75f;
+                actual_tower.transform.GetChild(0).localScale = new Vector3(actual_tower.transform.GetChild(0).localScale.x * 1.15f, actual_tower.transform.GetChild(0).localScale.y * 1.16f, actual_tower.transform.GetChild(0).localScale.z * 1.16f);
+            }
+            else if (upg_level.text == "Level 2")
+            {
+                actual_tower.GetComponent<Shoot>().firerate -= 0.4f;
+            }
+            else if (upg_level.text == "Level 3")
+            {
+                actual_tower.GetComponent<Shoot>().proj_size_multiplier = 1.8f;
+            }
+            else if (upg_level.text == "Level 4")
+            {
+                actual_tower.GetComponent<Shoot>().amt += 1;
+            }
+        }
 
         actual_tower.GetComponent<Tower>().level++;
-        actual_tower.transform.localScale = new Vector3(actual_tower.transform.localScale.x * 1.05f, actual_tower.transform.localScale.y * 1.05f, actual_tower.transform.localScale.z * 1.05f);
-        actual_tower.transform.GetChild(0).localScale = new Vector3(actual_tower.transform.GetChild(0).localScale.x / 1.05f, actual_tower.transform.GetChild(0).localScale.y / 1.05f, actual_tower.transform.GetChild(0).localScale.z / 1.05f);
+        actual_tower.transform.localScale = new Vector3(actual_tower.transform.localScale.x * 1.06f, actual_tower.transform.localScale.y * 1.06f, actual_tower.transform.localScale.z * 1.06f);
+        actual_tower.transform.GetChild(0).localScale = new Vector3(actual_tower.transform.GetChild(0).localScale.x / 1.06f, actual_tower.transform.GetChild(0).localScale.y / 1.06f, actual_tower.transform.GetChild(0).localScale.z / 1.06f);
         StartCoroutine(actual_tower.GetComponent<Tower>().show_update());
     }
 }

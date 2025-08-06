@@ -10,8 +10,11 @@ public class Shoot : MonoBehaviour
     public float range;
     public int amt;
 
+    public float proj_size_multiplier;
+
     void Start()
     {
+        proj_size_multiplier = 1;
         StartCoroutine(do_shooting());
     }
 
@@ -42,6 +45,8 @@ public class Shoot : MonoBehaviour
                     GameObject ist = Instantiate(projectile);
                     ist.transform.position = gameObject.transform.position;
                     ist.GetComponent<Target_Player>().target = next_target;
+
+                    ist.transform.localScale = new Vector3(ist.transform.localScale.x * proj_size_multiplier, ist.transform.localScale.y * proj_size_multiplier, ist.transform.localScale.z * proj_size_multiplier);
 
                     yield return new WaitForSeconds(0.1f);
                 }
