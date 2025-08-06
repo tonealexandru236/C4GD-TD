@@ -11,8 +11,12 @@ public class Target_Player : MonoBehaviour
     public float speed;
     public int damage;
 
+    private bool hits;
+    public bool has_splash;
+
     void Start()
     {
+        hits = true;
         dir = target.transform.position - gameObject.transform.position;
         dir.Normalize();
     }
@@ -24,10 +28,13 @@ public class Target_Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy") && (hits || has_splash))
         {
+            hits = false;
             collision.gameObject.GetComponent<Health>().hp -= damage;
-            Destroy(gameObject);
+
+            if(has_splash) Destroy(gameObject, 0.1f);
+            else Destroy(gameObject);
         }
     }
 }

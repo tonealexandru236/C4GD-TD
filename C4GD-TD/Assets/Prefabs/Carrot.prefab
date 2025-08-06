@@ -284,7 +284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 8990527835652522762, guid: ce7edffb7cdc1e94496aa2e83ecc4652, type: 3}
-  firerate: 0.7
+  firerate: 1.2
   range: 2.5
 --- !u!95 &1813611566582593856
 Animator:

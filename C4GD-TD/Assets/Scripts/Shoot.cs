@@ -53,17 +53,20 @@ public class Shoot : MonoBehaviour
         float maxx = int.MinValue;
         GameObject rez = null;
 
-        foreach(GameObject enemy in MainButtons.instance.enemies)
+        if (MainButtons.instance.enemies.Count > 0)
         {
-            //Debug.Log(Vector2.Distance(enemy.transform.position, transform.position));
-            if (Vector2.Distance(enemy.transform.position, transform.position) < range && enemy.GetComponent<SplineAnimate>() != null)
+            foreach (GameObject enemy in MainButtons.instance.enemies)
             {
-                cnt++;
-                Debug.Log("Ballon detected"); ///IT DETECTS
-                if(enemy.GetComponent<SplineAnimate>().NormalizedTime > maxx)
+                //Debug.Log(Vector2.Distance(enemy.transform.position, transform.position));
+                if (enemy != null && Vector2.Distance(enemy.transform.position, transform.position) < range && enemy.GetComponent<SplineAnimate>() != null)
                 {
-                    maxx = enemy.GetComponent<SplineAnimate>().NormalizedTime;
-                    rez = enemy;
+                    cnt++;
+                    Debug.Log("Ballon detected"); ///IT DETECTS
+                    if (enemy.GetComponent<SplineAnimate>().NormalizedTime > maxx)
+                    {
+                        maxx = enemy.GetComponent<SplineAnimate>().NormalizedTime;
+                        rez = enemy;
+                    }
                 }
             }
         }
