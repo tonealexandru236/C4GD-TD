@@ -26,5 +26,14 @@ public class Health : MonoBehaviour
             MainButtons.instance.enemies.Remove(gameObject);
             Destroy(gameObject, 0.2f);
         }
+
+        if(gameObject.GetComponent<SplineAnimate>().NormalizedTime == 1 && hp > 0)
+        {
+            MainButtons.instance.player_health = Mathf.Max(0, MainButtons.instance.player_health - hp);
+            hp = -200;
+
+            MainButtons.instance.enemies.Remove(gameObject);
+            Destroy(gameObject);
+        }
     }
 }
