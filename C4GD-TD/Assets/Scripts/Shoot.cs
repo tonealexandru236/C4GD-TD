@@ -42,13 +42,18 @@ public class Shoot : MonoBehaviour
 
                 for (int i = 0; i < amt; i++)
                 {
-                    GameObject ist = Instantiate(projectile);
-                    ist.transform.position = gameObject.transform.position;
-                    ist.GetComponent<Target_Player>().target = next_target;
+                    next_target = count_enemies();
+                    if (next_target != null)
+                    {
 
-                    ist.transform.localScale = new Vector3(ist.transform.localScale.x * proj_size_multiplier, ist.transform.localScale.y * proj_size_multiplier, ist.transform.localScale.z * proj_size_multiplier);
+                        GameObject ist = Instantiate(projectile);
+                        ist.transform.position = gameObject.transform.position;
+                        ist.GetComponent<Target_Player>().target = next_target;
 
-                    yield return new WaitForSeconds(0.1f);
+                        ist.transform.localScale = new Vector3(ist.transform.localScale.x * proj_size_multiplier, ist.transform.localScale.y * proj_size_multiplier, ist.transform.localScale.z * proj_size_multiplier);
+
+                        yield return new WaitForSeconds(0.1f);
+                    }
                 }
 
                 //MainButtons.instance.enemies.Remove(next_target);

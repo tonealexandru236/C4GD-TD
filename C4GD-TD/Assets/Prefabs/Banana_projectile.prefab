@@ -134,6 +134,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 8044802730884918073}
-  speed: 18
-  damage: 3
+  speed: 20
+  damage: 2
   has_splash: 0

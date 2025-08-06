@@ -32,7 +32,7 @@ public class MainButtons : MonoBehaviour
         instance = this;
 
         player_health = 80;
-        balance = 310;
+        balance = 410;
         speedup.SetText("x1");
         Time.timeScale = speed;
     }
@@ -139,7 +139,7 @@ public class MainButtons : MonoBehaviour
             if (upg_level.text == "Level 1")
             {
                 actual_tower.GetComponent<Shoot>().range += 0.75f;
-                actual_tower.transform.GetChild(0).localScale = new Vector3(actual_tower.transform.GetChild(0).localScale.x * 1.15f, actual_tower.transform.GetChild(0).localScale.y * 1.16f, actual_tower.transform.GetChild(0).localScale.z * 1.16f);
+                actual_tower.transform.GetChild(0).localScale = new Vector3(actual_tower.transform.GetChild(0).localScale.x * 1.16f, actual_tower.transform.GetChild(0).localScale.y * 1.16f, actual_tower.transform.GetChild(0).localScale.z * 1.16f);
             }
             else if (upg_level.text == "Level 2")
             {
@@ -152,6 +152,28 @@ public class MainButtons : MonoBehaviour
             else if (upg_level.text == "Level 4")
             {
                 actual_tower.GetComponent<Shoot>().amt += 1;
+            }
+        }
+        else if (actual_tower.GetComponent<SpriteRenderer>().sprite.name.Substring(0, 3) == "ban")
+        {
+            if (upg_level.text == "Level 1")
+            {
+                actual_tower.GetComponent<Shoot>().firerate -= 0.3f;
+                
+            }
+            else if (upg_level.text == "Level 2")
+            {
+                actual_tower.GetComponent<Shoot>().amt += 2;
+
+            }
+            else if (upg_level.text == "Level 3")
+            {
+                actual_tower.GetComponent<Shoot>().range += 1.5f;
+                actual_tower.transform.GetChild(0).localScale = new Vector3(actual_tower.transform.GetChild(0).localScale.x * 1.35f, actual_tower.transform.GetChild(0).localScale.y * 1.35f, actual_tower.transform.GetChild(0).localScale.z * 1.35f);
+            }
+            else if (upg_level.text == "Level 4")
+            {
+                actual_tower.GetComponent<Shoot>().amt += 2;
             }
         }
 

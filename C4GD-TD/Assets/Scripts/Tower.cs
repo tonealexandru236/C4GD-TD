@@ -81,6 +81,14 @@ public class Tower : MonoBehaviour
             else if (level == 3) { actual_upg = "Increases splash"; actual_cost = 400; }
             else if (level == 4) { actual_upg = "Shoots two apples at the same time"; actual_cost = 550; }
         }
+        else if (GetComponent<SpriteRenderer>().sprite.name.Substring(0, 3) == "ban")
+        {
+            actual_name = "Banana Shooter";
+            if (level == 1) { actual_upg = "Decrease attack speed by 0.3s"; actual_cost = 150; }
+            else if (level == 2) { actual_upg = "Shoots 3 bananas at once"; actual_cost = 400; }
+            else if (level == 3) { actual_upg = "Increase Range by 3"; actual_cost = 350; }
+            else if (level == 4) { actual_upg = "Shoots 5 bananas at once"; actual_cost = 700; }
+        }
 
         MainButtons.instance.Upgrade_screen(GetComponent<SpriteRenderer>().sprite, actual_name, level, actual_upg, actual_cost, gameObject);
         upgrade_screen.GetComponent<Animator>().Play("upgrade_left", 0, 0);
