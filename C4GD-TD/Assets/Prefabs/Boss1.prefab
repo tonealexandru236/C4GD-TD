@@ -213,6 +213,7 @@ MonoBehaviour:
   money_reward: 1000
   die_1: {fileID: 21300000, guid: 9611b222dfc07cd4bbaa54a602deeb09, type: 3}
   die_2: {fileID: 21300000, guid: 4b2d48f88410e2046b2f8433e1f0a1f1, type: 3}
+  act_1: {fileID: 0}
 --- !u!114 &-7061536434508374180
 MonoBehaviour:
   m_ObjectHideFlags: 0
