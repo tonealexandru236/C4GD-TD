@@ -5518,6 +5518,7 @@ GameObject:
   - component: {fileID: 1563611805}
   - component: {fileID: 1563611808}
   - component: {fileID: 1563611809}
+  - component: {fileID: 1563611810}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -5628,6 +5629,19 @@ MonoBehaviour:
   boss1: {fileID: 3617575045659956070, guid: 015743e3019479e44858241be8a752be, type: 3}
   path: {fileID: 1692135791}
   waves_text: {fileID: 1641640899}
+--- !u!114 &1563611810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563611804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7791a860ebae148b298cdea0af8d82b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backButton: {fileID: 1272502580}
 --- !u!1 &1580877654
 GameObject:
   m_ObjectHideFlags: 0
