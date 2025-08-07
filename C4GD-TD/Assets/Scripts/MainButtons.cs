@@ -178,6 +178,7 @@ public class MainButtons : MonoBehaviour
 
     public void Sell()
     {
+        upgrade_screen.GetComponent<Animator>().Play("upgrades_right", 0, 0);
         balance += actual_tower.GetComponent<Tower>().refund_price;
         Destroy(actual_tower);
         dis_all_ranges();
