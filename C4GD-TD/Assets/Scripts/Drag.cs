@@ -34,7 +34,7 @@ public class Drag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
             GameObject range = ist.transform.GetChild(0).gameObject;
             Color col = range.GetComponent<Image>().color;
-            col.a = 0.25f; range.GetComponent<Image>().color = col;
+            col.a = 0.2f; range.GetComponent<Image>().color = col;
 
             Destroy(ist.GetComponent<Drag>());
             ist.GetComponent<Image>().color = new Color(ist.GetComponent<Image>().color.r, ist.GetComponent<Image>().color.g, ist.GetComponent<Image>().color.b, 0.3f);
