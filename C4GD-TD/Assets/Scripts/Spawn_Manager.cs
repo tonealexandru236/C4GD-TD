@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Splines;
 
 public class Spawn_Manager : MonoBehaviour
@@ -41,7 +42,7 @@ public class Spawn_Manager : MonoBehaviour
 
     IEnumerator wave1()
     {
-        //StartCoroutine(spawn_bloons(boss1, 1f, 1)); yield return new WaitForSeconds(15f);
+        StartCoroutine(spawn_bloons(boss1, 1f, 1)); yield return new WaitForSeconds(15f);
 
         StartCoroutine(spawn_bloons(enemy4, 1.2f, 8)); yield return new WaitForSeconds(15f);
         StartCoroutine(spawn_bloons(enemy4, 1f, 12)); yield return new WaitForSeconds(15f);
@@ -235,7 +236,20 @@ public class Spawn_Manager : MonoBehaviour
         {
             //Debug.Log("KOK");
             ist = Instantiate(type); ist.GetComponent<SplineAnimate>().Container = path; MainButtons.instance.enemies.Add(ist);
-            if (type == boss1) ist.GetComponent<Animator>().Play("black_hole_idle");
+            if (type == boss1)
+            {
+                
+                if(SceneManager.GetActiveScene().name == "Battle2")
+                {
+                    ist.transform.localScale = new Vector3(ist.transform.localScale.x / 120, ist.transform.localScale.y / 120, ist.transform.localScale.z / 120);
+                    ist.GetComponent<CircleCollider2D>().radius *= 120;
+                    ist.GetComponent<Animator>().Play("shark_idle");
+                }
+                else
+                {
+                    ist.GetComponent<Animator>().Play("black_hole_idle");
+                }
+            }
 
             yield return new WaitForSeconds(cd);
         }
