@@ -5325,6 +5325,7 @@ MonoBehaviour:
   enemy2: {fileID: 2579901904395586919, guid: b24a1353d64198949b426afc0ce186cf, type: 3}
   enemy3: {fileID: 4981756657211721149, guid: 5b59757979e829547bda6cb60702948e, type: 3}
   enemy4: {fileID: 1380646619097196811, guid: c980d084985eb804f9a1df25794a1407, type: 3}
+  enemy5: {fileID: 4579384247269198852, guid: 4fee56e87c1a5aa428c399efa4faa7a1, type: 3}
   boss1: {fileID: 3617575045659956070, guid: 015743e3019479e44858241be8a752be, type: 3}
   path: {fileID: 1692135791}
   waves_text: {fileID: 1641640899}

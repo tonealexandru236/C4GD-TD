@@ -34,7 +34,7 @@ public class MainButtons : MonoBehaviour
         instance = this;
 
         player_health = 80;
-        balance = 3200; /// starting is 320
+        balance = 320; /// starting is 320
         speedup.SetText("x1");
         Time.timeScale = speed;
     }
@@ -79,9 +79,9 @@ public class MainButtons : MonoBehaviour
 
     public void game_speed()
     {
-        if (speed == 1) { speed = 2; speedup.SetText("x2"); }
-        else if (speed == 2) { speed = 4; speedup.SetText("x4"); }
-        else if (speed == 4) { speed = 1; speedup.SetText("x1"); }
+        if (speed == 1) { speed = 3; speedup.SetText("x3"); }
+        else if (speed == 3) { speed = 5; speedup.SetText("x5"); }
+        else if (speed == 5) { speed = 1; speedup.SetText("x1"); }
         //else if (speed == 5) { speed = 1; speedup.SetText("x1"); }
         Time.timeScale = speed;
     }
