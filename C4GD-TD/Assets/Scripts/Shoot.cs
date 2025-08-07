@@ -38,7 +38,7 @@ public class Shoot : MonoBehaviour
             GameObject next_target = count_enemies();
             if(next_target != null)
             {
-                Debug.Log("shoot");
+                //Debug.Log("shoot");
 
                 /// Shooting animation here
 
@@ -80,7 +80,7 @@ public class Shoot : MonoBehaviour
                 if (enemy != null && Vector2.Distance(enemy.transform.position, transform.position) < range && enemy.GetComponent<SplineAnimate>() != null)
                 {
                     cnt++;
-                    Debug.Log("Ballon detected"); ///IT DETECTS
+                    //Debug.Log("Ballon detected"); ///IT DETECTS
                     if (enemy.GetComponent<SplineAnimate>().NormalizedTime > maxx)
                     {
                         maxx = enemy.GetComponent<SplineAnimate>().NormalizedTime;

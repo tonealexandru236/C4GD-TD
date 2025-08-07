@@ -50,10 +50,11 @@ public class Tower : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().color.a == 1)
-            MainButtons.instance.dis_all_ranges();
+        if (gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().color.a >= 0.95f)
+            upgrade_screen.GetComponent<Animator>().Play("upgrades_right", 0, 0);
+        MainButtons.instance.dis_all_ranges();
 
-        if (gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().color.a == 0)
+        if (gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().color.a <= 0.05f)
             StartCoroutine(show_update());
 
         gameObject.transform.GetChild(0).GetComponent<Animator>().Play("range_app");
@@ -63,7 +64,7 @@ public class Tower : MonoBehaviour
     {
         //is_upg_open = true;
 
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.2f);
 
         string actual_name = "", actual_upg = "Max Level", actual_description = "";
         float actual_cost = 0;
@@ -95,7 +96,7 @@ public class Tower : MonoBehaviour
         else if (GetComponent<SpriteRenderer>().sprite.name.Substring(0, 3) == "can")
         {
             actual_name = "Candy Piercer"; actual_description = "Short range with deadly projectiles. Master the art of the cane to make them pierce.";
-            if (level == 1) { actual_upg = "Increase Range by 0.5"; actual_cost = 100; }
+            if (level == 1) { actual_upg = "Increase Range by 1"; actual_cost = 120; }
             else if (level == 2) { actual_upg = "Attacks now pierce through 1 enemy"; actual_cost = 280; }
             else if (level == 3) { actual_upg = "Decrease attack speed by 0.1s"; actual_cost = 240; }
             else if (level == 4) { actual_upg = "Shoots 2 canes at once"; actual_cost = 320; }

@@ -40,7 +40,8 @@ public class Spawn_Manager : MonoBehaviour
 
     IEnumerator wave1()
     {
-        //StartCoroutine(spawn_bloons(boss1, 1f, 1));
+        //StartCoroutine(spawn_bloons(boss1, 1f, 1)); yield return new WaitForSeconds(15f);
+
         StartCoroutine(spawn_bloons(enemy4, 1.2f, 8)); yield return new WaitForSeconds(15f);
         StartCoroutine(spawn_bloons(enemy4, 1f, 12)); yield return new WaitForSeconds(15f);
         StartCoroutine(spawn_bloons(enemy4, 0.72f, 5)); yield return new WaitForSeconds(7f);
@@ -160,7 +161,7 @@ public class Spawn_Manager : MonoBehaviour
     {
         for(int i=0; i<amt; i++)
         {
-            Debug.Log("KOK");
+            //Debug.Log("KOK");
             ist = Instantiate(type); ist.GetComponent<SplineAnimate>().Container = path; MainButtons.instance.enemies.Add(ist);
             if (type == boss1) ist.GetComponent<Animator>().Play("black_hole_idle");
 
@@ -170,6 +171,6 @@ public class Spawn_Manager : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(MainButtons.instance.enemies.Count);
+        //Debug.Log(MainButtons.instance.enemies.Count);
     }
 }

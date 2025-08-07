@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
+using UnityEngine.Splines;
 using UnityEngine.UI;
 
 public class MainButtons : MonoBehaviour
@@ -32,7 +34,7 @@ public class MainButtons : MonoBehaviour
         instance = this;
 
         player_health = 80;
-        balance = 5200; /// starting is 320
+        balance = 3200; /// starting is 320
         speedup.SetText("x1");
         Time.timeScale = speed;
     }
@@ -67,12 +69,11 @@ public class MainButtons : MonoBehaviour
 
     public void dis_all_ranges()
     {
-        upgrade_screen.GetComponent<Animator>().Play("upgrades_right", 0, 0);
-
         foreach (GameObject range in ranges)
         {
             //range.transform.parent.GetComponent<Tower>().is_upg_open = true;
-            range.GetComponent<Animator>().Play("range_dis");
+            if(range != null && range.GetComponent<Animator>() != null)
+                range.GetComponent<Animator>().Play("range_dis");
         }
     }
 
@@ -92,6 +93,54 @@ public class MainButtons : MonoBehaviour
         hpbar_txt.SetText(player_health.ToString());
 
         if (player_health <= 0) SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void spawn_on_destroy(GameObject[] spawns, int[] amt, float progress, SplineAnimate path)
+    {
+        for (int i = 0; i < spawns.Count(); i++)
+        {
+            for (int j = 0; j < amt[i]; j++)
+            {
+                GameObject ist = Instantiate(spawns[i]);
+
+                //Destroy(ist.GetComponent<SplineAnimate>());
+                //ist.AddComponent<SplineAnimate>();
+
+                SplineAnimate sa = ist.GetComponent<SplineAnimate>();
+                //sa.Duration = 23;
+
+                float progress_randomizer = Random.Range(-0.05f, 0.05f);
+
+                sa.Container = path.Container;
+                //sa.Restart(false);
+
+                StartCoroutine(do_spline(sa, progress + progress_randomizer));
+
+                /*
+                sa.Play();
+                
+                sa.NormalizedTime = progress + progress_randomizer;
+                ist.GetComponent<SplineAnimate>().NormalizedTime = sa.NormalizedTime;*/
+                //sa.PlayOnAwake = false;
+
+
+                //yield return null;
+
+
+                Debug.Log(progress + progress_randomizer);
+                MainButtons.instance.enemies.Add(ist);
+                //yield return new WaitForSeconds(0.05f);
+            }
+        }
+    }
+
+    IEnumerator do_spline(SplineAnimate sp, float time)
+    {
+        sp.Play();
+        yield return null;
+
+        sp.NormalizedTime = time;
+        //ist.GetComponent<SplineAnimate>().NormalizedTime = sa.NormalizedTime;
     }
 
     public Image upg_tower;
@@ -205,8 +254,8 @@ public class MainButtons : MonoBehaviour
             {
                 if (upg_level.text == "Level 1")
                 {
-                    actual_tower.GetComponent<Shoot>().range += 0.25f;
-                    actual_tower.transform.GetChild(0).localScale = new Vector3(actual_tower.transform.GetChild(0).localScale.x * 1.053f, actual_tower.transform.GetChild(0).localScale.y * 1.053f, actual_tower.transform.GetChild(0).localScale.z * 1.053f);
+                    actual_tower.GetComponent<Shoot>().range += 0.5f;
+                    actual_tower.transform.GetChild(0).localScale = new Vector3(actual_tower.transform.GetChild(0).localScale.x * 1.105f, actual_tower.transform.GetChild(0).localScale.y * 1.105f, actual_tower.transform.GetChild(0).localScale.z * 1.105f);
 
                 }
                 else if (upg_level.text == "Level 2")
@@ -225,8 +274,8 @@ public class MainButtons : MonoBehaviour
             }
 
             actual_tower.GetComponent<Tower>().level++;
-            actual_tower.transform.localScale = new Vector3(actual_tower.transform.localScale.x * 1.06f, actual_tower.transform.localScale.y * 1.06f, actual_tower.transform.localScale.z * 1.06f);
-            actual_tower.transform.GetChild(0).localScale = new Vector3(actual_tower.transform.GetChild(0).localScale.x / 1.06f, actual_tower.transform.GetChild(0).localScale.y / 1.06f, actual_tower.transform.GetChild(0).localScale.z / 1.06f);
+            actual_tower.transform.localScale = new Vector3(actual_tower.transform.localScale.x * 1.07f, actual_tower.transform.localScale.y * 1.07f, actual_tower.transform.localScale.z * 1.07f);
+            actual_tower.transform.GetChild(0).localScale = new Vector3(actual_tower.transform.GetChild(0).localScale.x / 1.07f, actual_tower.transform.GetChild(0).localScale.y / 1.07f, actual_tower.transform.GetChild(0).localScale.z / 1.07f);
             StartCoroutine(actual_tower.GetComponent<Tower>().show_update());
         }
         else
