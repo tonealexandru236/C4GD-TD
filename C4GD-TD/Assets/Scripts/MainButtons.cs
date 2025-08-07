@@ -100,12 +100,15 @@ public class MainButtons : MonoBehaviour
     public TMP_Text upg_upg;
     public TMP_Text upg_money;
 
+    public TMP_Text upg_description;
+    public TMP_Text upg_refund;
+
     public Button upgrade_but;
     public GameObject actual_tower;
         
     private float money_upg;
 
-    public void Upgrade_screen(Sprite tower, string name, float level, string upg, float money, GameObject tower_obj)
+    public void Upgrade_screen(Sprite tower, string name, float level, string upg, float money, GameObject tower_obj, string description)
     {
         if(level == 5) upgrade_but.gameObject.SetActive(false);
         else upgrade_but.gameObject.SetActive(true);
@@ -114,17 +117,28 @@ public class MainButtons : MonoBehaviour
         upg_name.SetText(name);
         upg_level.SetText("Level " + level.ToString());
         upg_upg.SetText(upg);
+        upg_refund.SetText("+" + tower_obj.GetComponent<Tower>().refund_price.ToString() + "$");
+
+        upg_description.SetText(description);
+
         upg_money.SetText(money.ToString() + " $");
         actual_tower = tower_obj;
 
         money_upg = money;
     }
 
+    public void Sell()
+    {
+        balance += actual_tower.GetComponent<Tower>().refund_price;
+        Destroy(actual_tower);
+        dis_all_ranges();
+    }
+
     public void Do_Upgrade()
     {
         if (balance >= money_upg)
         {
-            balance -= (int)money_upg;
+            balance -= (int)money_upg; actual_tower.GetComponent<Tower>().refund_price += (int)money_upg / 2;
             if (actual_tower.GetComponent<SpriteRenderer>().sprite.name.Substring(0, 3) == "car")
             {
                 if (upg_level.text == "Level 1")
