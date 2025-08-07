@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 597883618255398098}
   - component: {fileID: 8413832156758354298}
   - component: {fileID: -7342019015607177942}
+  - component: {fileID: 8485522867073755729}
   m_Layer: 0
   m_Name: Enemy5
   m_TagString: Enemy
@@ -79,12 +80,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ff28860c1008be94c8fcc9d8df0b9081, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c388e298bdd29224086bd1df447a3363, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.32, y: 0.32}
+  m_Size: {x: 15, y: 15}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -208,9 +209,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4cf2db6c39e01d4b8bc9589f15c1d48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 12
+  hp: 16
   money_reward: 0
-  die_1: {fileID: 21300000, guid: 30e262b2fb162964598bc469d9c3deda, type: 3}
+  die_1: {fileID: 21300000, guid: 008420c8d936af040b354a2e711e3720, type: 3}
   die_2: {fileID: 0}
 --- !u!114 &-7342019015607177942
 MonoBehaviour:
@@ -228,4 +229,18 @@ MonoBehaviour:
   - {fileID: 4981756657211721149, guid: 5b59757979e829547bda6cb60702948e, type: 3}
   - {fileID: 1380646619097196811, guid: c980d084985eb804f9a1df25794a1407, type: 3}
   amt: 0300000005000000
-  path: {fileID: 0}
+--- !u!114 &8485522867073755729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4579384247269198852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcc8fffd5c1f0d04b88ccb8f4c4858e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ocean_e1: {fileID: 21300000, guid: 9161f93c24772cd478a6e74731d1a3a9, type: 3}
+  ocean_a1: {fileID: 21300000, guid: e47e38760d4f65a42bb4c637c2a166d3, type: 3}
+  ocean_a2: {fileID: 0}
