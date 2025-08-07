@@ -32,7 +32,7 @@ public class MainButtons : MonoBehaviour
         instance = this;
 
         player_health = 80;
-        balance = 410;
+        balance = 5200; /// starting is 320
         speedup.SetText("x1");
         Time.timeScale = speed;
     }
@@ -79,9 +79,9 @@ public class MainButtons : MonoBehaviour
     public void game_speed()
     {
         if (speed == 1) { speed = 2; speedup.SetText("x2"); }
-        else if (speed == 2) { speed = 3; speedup.SetText("x3"); }
-        else if (speed == 3) { speed = 5; speedup.SetText("x5"); }
-        else if (speed == 5) { speed = 1; speedup.SetText("x1"); }
+        else if (speed == 2) { speed = 4; speedup.SetText("x4"); }
+        else if (speed == 4) { speed = 1; speedup.SetText("x1"); }
+        //else if (speed == 5) { speed = 1; speedup.SetText("x1"); }
         Time.timeScale = speed;
     }
 
@@ -102,6 +102,8 @@ public class MainButtons : MonoBehaviour
 
     public Button upgrade_but;
     public GameObject actual_tower;
+        
+    private float money_upg;
 
     public void Upgrade_screen(Sprite tower, string name, float level, string upg, float money, GameObject tower_obj)
     {
@@ -114,72 +116,106 @@ public class MainButtons : MonoBehaviour
         upg_upg.SetText(upg);
         upg_money.SetText(money.ToString() + " $");
         actual_tower = tower_obj;
+
+        money_upg = money;
     }
 
     public void Do_Upgrade()
     {
-        if (actual_tower.GetComponent<SpriteRenderer>().sprite.name.Substring(0, 3) == "car")
+        if (balance >= money_upg)
         {
-            if (upg_level.text == "Level 1"){
-                actual_tower.GetComponent<Shoot>().range += 0.5f;
-                actual_tower.transform.GetChild(0).localScale = new Vector3(actual_tower.transform.GetChild(0).localScale.x * 1.105f, actual_tower.transform.GetChild(0).localScale.y * 1.105f, actual_tower.transform.GetChild(0).localScale.z * 1.105f);
-            }
-            else if (upg_level.text == "Level 2") {
-                actual_tower.GetComponent<Shoot>().amt += 1;
-            }
-            else if (upg_level.text == "Level 3"){
-                actual_tower.GetComponent<Shoot>().firerate -= 0.2f;
-            }
-            else if (upg_level.text == "Level 4"){
-                actual_tower.GetComponent<Shoot>().amt += 1;
-            }
-        }
-        else if (actual_tower.GetComponent<SpriteRenderer>().sprite.name.Substring(0, 3) == "app")
-        {
-            if (upg_level.text == "Level 1")
+            balance -= (int)money_upg;
+            if (actual_tower.GetComponent<SpriteRenderer>().sprite.name.Substring(0, 3) == "car")
             {
-                actual_tower.GetComponent<Shoot>().range += 0.75f;
-                actual_tower.transform.GetChild(0).localScale = new Vector3(actual_tower.transform.GetChild(0).localScale.x * 1.16f, actual_tower.transform.GetChild(0).localScale.y * 1.16f, actual_tower.transform.GetChild(0).localScale.z * 1.16f);
+                if (upg_level.text == "Level 1")
+                {
+                    actual_tower.GetComponent<Shoot>().range += 0.5f;
+                    actual_tower.transform.GetChild(0).localScale = new Vector3(actual_tower.transform.GetChild(0).localScale.x * 1.105f, actual_tower.transform.GetChild(0).localScale.y * 1.105f, actual_tower.transform.GetChild(0).localScale.z * 1.105f);
+                }
+                else if (upg_level.text == "Level 2")
+                {
+                    actual_tower.GetComponent<Shoot>().amt += 1;
+                }
+                else if (upg_level.text == "Level 3")
+                {
+                    actual_tower.GetComponent<Shoot>().firerate -= 0.2f;
+                }
+                else if (upg_level.text == "Level 4")
+                {
+                    actual_tower.GetComponent<Shoot>().amt += 1;
+                }
             }
-            else if (upg_level.text == "Level 2")
+            else if (actual_tower.GetComponent<SpriteRenderer>().sprite.name.Substring(0, 3) == "app")
             {
-                actual_tower.GetComponent<Shoot>().firerate -= 0.4f;
+                if (upg_level.text == "Level 1")
+                {
+                    actual_tower.GetComponent<Shoot>().range += 0.75f;
+                    actual_tower.transform.GetChild(0).localScale = new Vector3(actual_tower.transform.GetChild(0).localScale.x * 1.16f, actual_tower.transform.GetChild(0).localScale.y * 1.16f, actual_tower.transform.GetChild(0).localScale.z * 1.16f);
+                }
+                else if (upg_level.text == "Level 2")
+                {
+                    actual_tower.GetComponent<Shoot>().firerate -= 0.4f;
+                }
+                else if (upg_level.text == "Level 3")
+                {
+                    actual_tower.GetComponent<Shoot>().proj_size_multiplier = 1.8f;
+                }
+                else if (upg_level.text == "Level 4")
+                {
+                    actual_tower.GetComponent<Shoot>().amt += 1;
+                }
             }
-            else if (upg_level.text == "Level 3")
+            else if (actual_tower.GetComponent<SpriteRenderer>().sprite.name.Substring(0, 3) == "ban")
             {
-                actual_tower.GetComponent<Shoot>().proj_size_multiplier = 1.8f;
-            }
-            else if (upg_level.text == "Level 4")
-            {
-                actual_tower.GetComponent<Shoot>().amt += 1;
-            }
-        }
-        else if (actual_tower.GetComponent<SpriteRenderer>().sprite.name.Substring(0, 3) == "ban")
-        {
-            if (upg_level.text == "Level 1")
-            {
-                actual_tower.GetComponent<Shoot>().firerate -= 0.3f;
-                
-            }
-            else if (upg_level.text == "Level 2")
-            {
-                actual_tower.GetComponent<Shoot>().amt += 2;
+                if (upg_level.text == "Level 1")
+                {
+                    actual_tower.GetComponent<Shoot>().firerate -= 0.3f;
 
-            }
-            else if (upg_level.text == "Level 3")
-            {
-                actual_tower.GetComponent<Shoot>().range += 1.5f;
-                actual_tower.transform.GetChild(0).localScale = new Vector3(actual_tower.transform.GetChild(0).localScale.x * 1.35f, actual_tower.transform.GetChild(0).localScale.y * 1.35f, actual_tower.transform.GetChild(0).localScale.z * 1.35f);
-            }
-            else if (upg_level.text == "Level 4")
-            {
-                actual_tower.GetComponent<Shoot>().amt += 2;
-            }
-        }
+                }
+                else if (upg_level.text == "Level 2")
+                {
+                    actual_tower.GetComponent<Shoot>().amt += 2;
 
-        actual_tower.GetComponent<Tower>().level++;
-        actual_tower.transform.localScale = new Vector3(actual_tower.transform.localScale.x * 1.06f, actual_tower.transform.localScale.y * 1.06f, actual_tower.transform.localScale.z * 1.06f);
-        actual_tower.transform.GetChild(0).localScale = new Vector3(actual_tower.transform.GetChild(0).localScale.x / 1.06f, actual_tower.transform.GetChild(0).localScale.y / 1.06f, actual_tower.transform.GetChild(0).localScale.z / 1.06f);
-        StartCoroutine(actual_tower.GetComponent<Tower>().show_update());
+                }
+                else if (upg_level.text == "Level 3")
+                {
+                    actual_tower.GetComponent<Shoot>().range += 1.5f;
+                    actual_tower.transform.GetChild(0).localScale = new Vector3(actual_tower.transform.GetChild(0).localScale.x * 1.35f, actual_tower.transform.GetChild(0).localScale.y * 1.35f, actual_tower.transform.GetChild(0).localScale.z * 1.35f);
+                }
+                else if (upg_level.text == "Level 4")
+                {
+                    actual_tower.GetComponent<Shoot>().amt += 2;
+                }
+            }
+            else if (actual_tower.GetComponent<SpriteRenderer>().sprite.name.Substring(0, 3) == "can")
+            {
+                if (upg_level.text == "Level 1")
+                {
+                    actual_tower.GetComponent<Shoot>().range += 0.25f;
+                    actual_tower.transform.GetChild(0).localScale = new Vector3(actual_tower.transform.GetChild(0).localScale.x * 1.053f, actual_tower.transform.GetChild(0).localScale.y * 1.053f, actual_tower.transform.GetChild(0).localScale.z * 1.053f);
+
+                }
+                else if (upg_level.text == "Level 2")
+                {
+                    actual_tower.GetComponent<Shoot>().pierce = 2;
+
+                }
+                else if (upg_level.text == "Level 3")
+                {
+                    actual_tower.GetComponent<Shoot>().firerate -= 0.1f;
+                }
+                else if (upg_level.text == "Level 4")
+                {
+                    actual_tower.GetComponent<Shoot>().amt += 1;
+                }
+            }
+
+            actual_tower.GetComponent<Tower>().level++;
+            actual_tower.transform.localScale = new Vector3(actual_tower.transform.localScale.x * 1.06f, actual_tower.transform.localScale.y * 1.06f, actual_tower.transform.localScale.z * 1.06f);
+            actual_tower.transform.GetChild(0).localScale = new Vector3(actual_tower.transform.GetChild(0).localScale.x / 1.06f, actual_tower.transform.GetChild(0).localScale.y / 1.06f, actual_tower.transform.GetChild(0).localScale.z / 1.06f);
+            StartCoroutine(actual_tower.GetComponent<Tower>().show_update());
+        }
+        else
+            not_enough_money();
     }
 }

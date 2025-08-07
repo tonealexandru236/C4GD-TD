@@ -11,9 +11,11 @@ public class Shoot : MonoBehaviour
     public int amt;
 
     public float proj_size_multiplier;
+    public int pierce;
 
     void Start()
     {
+        pierce = 1;
         proj_size_multiplier = 1;
         StartCoroutine(do_shooting());
     }
@@ -51,8 +53,9 @@ public class Shoot : MonoBehaviour
                         ist.GetComponent<Target_Player>().target = next_target;
 
                         ist.transform.localScale = new Vector3(ist.transform.localScale.x * proj_size_multiplier, ist.transform.localScale.y * proj_size_multiplier, ist.transform.localScale.z * proj_size_multiplier);
+                        ist.GetComponent<Target_Player>().pierces = pierce;
 
-                        yield return new WaitForSeconds(0.1f);
+                        yield return new WaitForSeconds(0.15f);
                     }
                 }
 

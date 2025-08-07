@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8990527835652522762
+--- !u!1 &5187922793560102877
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,40 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7847968675632924942}
-  - component: {fileID: 4993102455888713546}
-  - component: {fileID: 145839280019554170}
-  - component: {fileID: 8253471369467411367}
-  - component: {fileID: -1266594027348125215}
+  - component: {fileID: 7321773877096692662}
+  - component: {fileID: 4644905921509540159}
+  - component: {fileID: 7954428608108068957}
+  - component: {fileID: 5318846526878269440}
+  - component: {fileID: -7842082923031112248}
   m_Layer: 0
-  m_Name: Carrot_projectile
+  m_Name: Cane_projectile
   m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7847968675632924942
+--- !u!4 &7321773877096692662
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8990527835652522762}
+  m_GameObject: {fileID: 5187922793560102877}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.488, y: -0.287, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_LocalPosition: {x: 0.16139722, y: -0.2385725, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &4993102455888713546
+--- !u!212 &4644905921509540159
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8990527835652522762}
+  m_GameObject: {fileID: 5187922793560102877}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d1c5b996d5ee2496b9d8c9bb77b660de, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fc32b018fc725db4e8424876a6307d48, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -87,13 +87,13 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &145839280019554170
+--- !u!58 &7954428608108068957
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8990527835652522762}
+  m_GameObject: {fileID: 5187922793560102877}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -116,37 +116,37 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.025, y: 0.01}
+  m_Offset: {x: 0.02, y: -0.02}
   serializedVersion: 2
-  m_Radius: 0.03
---- !u!114 &8253471369467411367
+  m_Radius: 0.05
+--- !u!114 &5318846526878269440
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8990527835652522762}
+  m_GameObject: {fileID: 5187922793560102877}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 08f1bb05b228d724cbfc2c88df0447e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 8990527835652522762}
-  speed: 14
+  target: {fileID: 5187922793560102877}
+  speed: 12
   damage: 1
   has_splash: 0
   pierces: 0
---- !u!96 &-1266594027348125215
+--- !u!96 &-7842082923031112248
 TrailRenderer:
   serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8990527835652522762}
+  m_GameObject: {fileID: 5187922793560102877}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -212,7 +212,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.85098046, g: 0.45882356, b: 0, a: 0.78431374}
+      key0: {r: 1, g: 0.4198113, b: 0.44735208, a: 0.78431374}
       key1: {r: 1, g: 1, b: 1, a: 0}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
