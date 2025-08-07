@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 6259632216577475886}
   - component: {fileID: 3203355440695227322}
   - component: {fileID: 4069990229110319320}
-  - component: {fileID: 4414704432367248315}
   - component: {fileID: 7141651449111556660}
   - component: {fileID: 5456257886690469471}
   m_Layer: 0
@@ -175,27 +174,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!95 &4414704432367248315
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1380646619097196811}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 90a2401b51ba8fb4a8a12054d1532876, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &7141651449111556660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,6 +190,7 @@ MonoBehaviour:
   money_reward: 4
   die_1: {fileID: 21300000, guid: 5b29454bdcbd44955a13c57498040143, type: 3}
   die_2: {fileID: 0}
+  act_1: {fileID: 0}
 --- !u!114 &5456257886690469471
 MonoBehaviour:
   m_ObjectHideFlags: 0
