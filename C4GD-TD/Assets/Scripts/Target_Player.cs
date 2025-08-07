@@ -19,6 +19,8 @@ public class Target_Player : MonoBehaviour
 
     void Start()
     {
+        Destroy(gameObject, 7f);
+
         original_target = new Vector3(target.transform.position.x, target.transform.position.y, 0);
 
         Vector3 got = new Vector3(target.transform.position.x, target.transform.position.y, 0);

@@ -216,7 +216,9 @@ public class Spawn_Manager : MonoBehaviour
             StartCoroutine(spawn_bloons(enemy1, 0.6f, 3));
             StartCoroutine(spawn_bloons(enemy3, 0f, 1));
             yield return new WaitForSeconds(3f);
-        }   
+        }
+
+        StartCoroutine(spawn_bloons(boss1, 1f, 1));
 
         while (MainButtons.instance.enemies.Count > 0) yield return new WaitForSeconds(1f);
         yield return new WaitForSeconds(5f);

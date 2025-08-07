@@ -15,7 +15,10 @@ public class Health : MonoBehaviour
 
     private void Start()
     {
-        if(act_1 != null)
+        if(gameObject.name.Substring(0, 3) != "bos")
+            Destroy(gameObject, 30f);
+
+        if (act_1 != null)
         gameObject.GetComponent<SpriteRenderer>().sprite = act_1;
     }
 
