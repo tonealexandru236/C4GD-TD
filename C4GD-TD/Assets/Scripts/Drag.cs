@@ -15,14 +15,27 @@ public class Drag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public TMP_Text pricetag;
 
     public bool did_drag;
+    public bool show_range;
 
     public void OnPointerDown(PointerEventData eventData)
     {
         if (MainButtons.instance.balance >= price)
         {
+            MainButtons.instance.dis_all_ranges();
+            MainButtons.instance.upgrade_screen.GetComponent<Animator>().Play("upgrades_right", 0, 0);
+
+            /*GameObject range = transform.GetChild(0).gameObject;
+            Color col = range.GetComponent<Image>().color;
+            col.a = 1; range.GetComponent<Image>().color = col;*/
+
             did_drag = true;
 
             ist = Instantiate(gameObject, Canvas.transform);
+
+            GameObject range = ist.transform.GetChild(0).gameObject;
+            Color col = range.GetComponent<Image>().color;
+            col.a = 0.25f; range.GetComponent<Image>().color = col;
+
             Destroy(ist.GetComponent<Drag>());
             ist.GetComponent<Image>().color = new Color(ist.GetComponent<Image>().color.r, ist.GetComponent<Image>().color.g, ist.GetComponent<Image>().color.b, 0.3f);
         }

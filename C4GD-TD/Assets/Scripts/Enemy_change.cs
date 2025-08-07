@@ -16,7 +16,7 @@ public class Enemy_change : MonoBehaviour
     private SpriteRenderer sprite;
     private Health hp;
 
-    void Start()
+    void Awake()
     {
         hp = GetComponent<Health>();
 
@@ -28,8 +28,12 @@ public class Enemy_change : MonoBehaviour
         }
         else */if(SceneManager.GetActiveScene().name == "Battle2")
         {
-            gameObject.GetComponent<SpriteRenderer>().sprite = ocean_e1;
+            /*Debug.Log(gameObject);
+            Debug.Log(ocean_e1);
+            Debug.Log(gameObject.GetComponent<SpriteRenderer>().sprite);
+            gameObject.GetComponent<SpriteRenderer>().sprite = ocean_e1;*/
             hp.die_1 = ocean_a1;
+            hp.act_1 = ocean_e1;
             if (ocean_a2 != null) hp.die_2 = ocean_a2;
         }
     }
