@@ -16,7 +16,7 @@ public class Enemy_change : MonoBehaviour
     private SpriteRenderer sprite;
     private Health hp;
 
-    void Start()
+    void Awake()
     {
         hp = GetComponent<Health>();
 
