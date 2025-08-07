@@ -5,25 +5,27 @@ using UnityEngine;
 public class GlobalMusicToggle : MonoBehaviour
 
 {
-    private static GlobalMusicToggle instance;
     private AudioSource audioSource;
 
     void Awake()
     {
-        if (instance == null)
+        // Make sure only one music source exists in the scene
+        AudioSource[] allAudioSources = FindObjectsOfType<AudioSource>();
+        foreach (AudioSource source in allAudioSources)
         {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-            audioSource = GetComponent<AudioSource>();
+            if (source != GetComponent<AudioSource>() && source.isPlaying)
+            {
+                source.Stop(); // Stop other audio sources
+            }
+        }
 
-            // Apply saved mute setting
-            bool isMuted = PlayerPrefs.GetInt("MusicMuted", 0) == 1;
-            audioSource.mute = isMuted;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        audioSource = GetComponent<AudioSource>();
+
+        // Apply saved mute setting
+        bool isMuted = PlayerPrefs.GetInt("MusicMuted", 0) == 1;
+        audioSource.mute = isMuted;
+
+        audioSource.Play();
     }
 
     public void ToggleMusic()
