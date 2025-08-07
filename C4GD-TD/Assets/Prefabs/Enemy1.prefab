@@ -106,7 +106,7 @@ MonoBehaviour:
   m_PlayOnAwake: 1
   m_LoopMode: 0
   m_Method: 0
-  m_Duration: 19
+  m_Duration: 26
   m_MaxSpeed: 0.62480724
   m_EasingMode: 0
   m_AlignmentMode: 0
@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4cf2db6c39e01d4b8bc9589f15c1d48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 5
+  hp: 8
   money_reward: 0
   die_1: {fileID: 21300000, guid: 30e262b2fb162964598bc469d9c3deda, type: 3}
   die_2: {fileID: 0}
@@ -228,4 +228,3 @@ MonoBehaviour:
   - {fileID: 2579901904395586919, guid: b24a1353d64198949b426afc0ce186cf, type: 3}
   - {fileID: 1380646619097196811, guid: c980d084985eb804f9a1df25794a1407, type: 3}
   amt: 0200000003000000
-  path: {fileID: 0}
