@@ -29,13 +29,8 @@ public class MainMenu : MonoBehaviour
     }
     void Start()
     {
-        startButton.onClick.AddListener(StartButtonPressed);
-        settingsButton.onClick.AddListener(settingsButtonPressed);
-        HTPButton.onClick.AddListener(HTPButtonPressed);
-    }
-
-    void Update()
-    {
-
+        if (startButton != null) startButton.onClick.AddListener(StartButtonPressed);
+        if(settingsButton != null) settingsButton.onClick.AddListener(settingsButtonPressed);
+        if (HTPButton != null) HTPButton.onClick.AddListener(HTPButtonPressed);
     }
 }
