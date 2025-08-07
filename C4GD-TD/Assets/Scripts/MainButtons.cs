@@ -30,6 +30,8 @@ public class MainButtons : MonoBehaviour
 
     public GameObject upgrade_screen;
 
+    public AudioSource music;
+
     private void Start()
     {
         instance = this;
@@ -41,7 +43,7 @@ public class MainButtons : MonoBehaviour
 
         balance = 320; /// starting is 320
         speedup.SetText("x1");
-        Time.timeScale = speed * 1.2f;
+        Time.timeScale = speed * 1.25f;
     }
 
     public void cant_place_tower()
@@ -58,11 +60,13 @@ public class MainButtons : MonoBehaviour
     {
         if (Time.timeScale == 0)
         {
-            Time.timeScale = speed * 1.2f;
+            music.UnPause();
+            Time.timeScale = speed * 1.25f;
             pause.SetActive(false);
         }
         else 
         {
+            music.Pause();
             Time.timeScale = 0;
             pause.SetActive(true);
         }
@@ -88,7 +92,7 @@ public class MainButtons : MonoBehaviour
         else if (speed == 2) { speed = 4; speedup.SetText("x4"); }
         else if (speed == 4) { speed = 1; speedup.SetText("x1"); }
         //else if (speed == 5) { speed = 1; speedup.SetText("x1"); }
-        Time.timeScale = speed * 1.2f;
+        Time.timeScale = speed * 1.25f;
     }
 
     private void Update()
