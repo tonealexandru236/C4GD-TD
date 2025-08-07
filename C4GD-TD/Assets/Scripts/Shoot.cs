@@ -11,9 +11,11 @@ public class Shoot : MonoBehaviour
     public int amt;
 
     public float proj_size_multiplier;
+    public int pierce;
 
     void Start()
     {
+        pierce = 1;
         proj_size_multiplier = 1;
         StartCoroutine(do_shooting());
     }
@@ -36,19 +38,25 @@ public class Shoot : MonoBehaviour
             GameObject next_target = count_enemies();
             if(next_target != null)
             {
-                Debug.Log("shoot");
+                //Debug.Log("shoot");
 
                 /// Shooting animation here
 
                 for (int i = 0; i < amt; i++)
                 {
-                    GameObject ist = Instantiate(projectile);
-                    ist.transform.position = gameObject.transform.position;
-                    ist.GetComponent<Target_Player>().target = next_target;
+                    next_target = count_enemies();
+                    if (next_target != null)
+                    {
 
-                    ist.transform.localScale = new Vector3(ist.transform.localScale.x * proj_size_multiplier, ist.transform.localScale.y * proj_size_multiplier, ist.transform.localScale.z * proj_size_multiplier);
+                        GameObject ist = Instantiate(projectile);
+                        ist.transform.position = gameObject.transform.position;
+                        ist.GetComponent<Target_Player>().target = next_target;
 
-                    yield return new WaitForSeconds(0.1f);
+                        ist.transform.localScale = new Vector3(ist.transform.localScale.x * proj_size_multiplier, ist.transform.localScale.y * proj_size_multiplier, ist.transform.localScale.z * proj_size_multiplier);
+                        ist.GetComponent<Target_Player>().pierces = pierce;
+
+                        yield return new WaitForSeconds(0.15f);
+                    }
                 }
 
                 //MainButtons.instance.enemies.Remove(next_target);
@@ -72,7 +80,7 @@ public class Shoot : MonoBehaviour
                 if (enemy != null && Vector2.Distance(enemy.transform.position, transform.position) < range && enemy.GetComponent<SplineAnimate>() != null)
                 {
                     cnt++;
-                    Debug.Log("Ballon detected"); ///IT DETECTS
+                    //Debug.Log("Ballon detected"); ///IT DETECTS
                     if (enemy.GetComponent<SplineAnimate>().NormalizedTime > maxx)
                     {
                         maxx = enemy.GetComponent<SplineAnimate>().NormalizedTime;

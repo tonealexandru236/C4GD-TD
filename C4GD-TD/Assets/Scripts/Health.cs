@@ -8,10 +8,8 @@ public class Health : MonoBehaviour
     public int hp;
     public int money_reward;
 
-    void Start()
-    {
-        
-    }
+    public Sprite die_1;
+    public Sprite die_2;
 
     void Update()
     {
@@ -20,11 +18,11 @@ public class Health : MonoBehaviour
             gameObject.GetComponent<SplineAnimate>().Pause();
 
             hp = -200;
-            gameObject.GetComponent<Animator>().Play("pop1");
-            MainButtons.instance.balance += money_reward;
 
+            StartCoroutine(die_animation());
+            
+            MainButtons.instance.balance += money_reward;
             MainButtons.instance.enemies.Remove(gameObject);
-            Destroy(gameObject, 0.2f);
         }
 
         if(gameObject.GetComponent<SplineAnimate>().NormalizedTime == 1 && hp > 0)
@@ -35,5 +33,21 @@ public class Health : MonoBehaviour
             MainButtons.instance.enemies.Remove(gameObject);
             Destroy(gameObject);
         }
+    }
+
+    IEnumerator die_animation()
+    {
+        Destroy(gameObject.GetComponent<Animator>());
+        gameObject.GetComponent<SpriteRenderer>().sprite = die_1;
+        yield return new WaitForSeconds(0.15f);
+
+        if (die_2 != null)
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = die_2;
+            yield return new WaitForSeconds(0.15f);
+        }
+
+        gameObject.GetComponent<SplineAnimate>().Play();
+        Destroy(gameObject);
     }
 }

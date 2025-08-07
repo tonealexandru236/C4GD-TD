@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5655932854029070243}
   - component: {fileID: 2519903489199977721}
   - component: {fileID: 9008031532817238892}
+  - component: {fileID: 2545149709400146890}
   m_Layer: 0
   m_Name: Enemy1
   m_TagString: Enemy
@@ -105,7 +106,7 @@ MonoBehaviour:
   m_PlayOnAwake: 1
   m_LoopMode: 0
   m_Method: 0
-  m_Duration: 18
+  m_Duration: 19
   m_MaxSpeed: 0.62480724
   m_EasingMode: 0
   m_AlignmentMode: 0
@@ -208,4 +209,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 5
-  money_reward: 10
+  money_reward: 0
+  die_1: {fileID: 21300000, guid: 30e262b2fb162964598bc469d9c3deda, type: 3}
+  die_2: {fileID: 0}
+--- !u!114 &2545149709400146890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3157326149812224142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc310612e7174f14287ef8ce0056d7a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawns:
+  - {fileID: 2579901904395586919, guid: b24a1353d64198949b426afc0ce186cf, type: 3}
+  - {fileID: 1380646619097196811, guid: c980d084985eb804f9a1df25794a1407, type: 3}
+  amt: 0200000003000000
+  path: {fileID: 0}

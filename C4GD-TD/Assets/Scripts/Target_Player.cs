@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
@@ -11,17 +12,18 @@ public class Target_Player : MonoBehaviour
     public float speed;
     public int damage;
 
-    private bool hits;
     public bool has_splash;
+    public int pierces;
 
     private Vector3 original_target;
 
     void Start()
     {
-        original_target = target.transform.position;
+        original_target = new Vector3(target.transform.position.x, target.transform.position.y, 0);
 
-        hits = true;
-        dir = target.transform.position - gameObject.transform.position;
+        Vector3 got = new Vector3(target.transform.position.x, target.transform.position.y, 0);
+        dir = got - gameObject.transform.position;
+
         dir.Normalize();
     }
 
@@ -30,19 +32,22 @@ public class Target_Player : MonoBehaviour
         if (Vector2.Distance(original_target, gameObject.transform.position) > 0.1f || has_splash == false)
             transform.position += dir * Time.deltaTime * speed;
 
-        if(has_splash == false) 
-            dir = target.transform.position - gameObject.transform.position;
+        if(has_splash == false && target != null)
+        {
+            Vector3 got = new Vector3(target.transform.position.x, target.transform.position.y, 0);
+            dir = got - gameObject.transform.position;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy") && (hits || has_splash))
+        if (collision.gameObject.CompareTag("Enemy") && (has_splash || pierces >= 1))
         {
-            hits = false;
             collision.gameObject.GetComponent<Health>().hp -= damage;
+            pierces--;
 
-            if(has_splash) Destroy(gameObject, 0.1f);
-            else Destroy(gameObject);
+            if (has_splash) Destroy(gameObject, 0.1f);
+            else if(pierces == 0) Destroy(gameObject);
         }
     }
 }

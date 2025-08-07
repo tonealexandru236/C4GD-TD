@@ -105,7 +105,7 @@ MonoBehaviour:
   m_PlayOnAwake: 1
   m_LoopMode: 0
   m_Method: 0
-  m_Duration: 22
+  m_Duration: 23
   m_MaxSpeed: 0.6728693
   m_EasingMode: 0
   m_AlignmentMode: 0
@@ -208,4 +208,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 2
-  money_reward: 5
+  money_reward: 6
+  die_1: {fileID: 21300000, guid: a113ac60783aa4358b3f76755822035f, type: 3}
+  die_2: {fileID: 0}

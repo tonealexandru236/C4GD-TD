@@ -208,6 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3532e81ae76a0cd49859e9e747a24fc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level: 0
   price: 40
   upgrade_screen: {fileID: 0}
 --- !u!50 &1044547152200335753
@@ -288,6 +289,7 @@ MonoBehaviour:
   firerate: 1.2
   range: 2.5
   amt: 1
+  proj_size_multiplier: 0
 --- !u!95 &1813611566582593856
 Animator:
   serializedVersion: 5
