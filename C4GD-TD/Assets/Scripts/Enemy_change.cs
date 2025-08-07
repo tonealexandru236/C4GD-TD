@@ -28,7 +28,7 @@ public class Enemy_change : MonoBehaviour
         }
         else */if(SceneManager.GetActiveScene().name == "Battle2")
         {
-            sprite.GetComponent<SpriteRenderer>().sprite = ocean_e1;
+            gameObject.GetComponent<SpriteRenderer>().sprite = ocean_e1;
             hp.die_1 = ocean_a1;
             if (ocean_a2 != null) hp.die_2 = ocean_a2;
         }
