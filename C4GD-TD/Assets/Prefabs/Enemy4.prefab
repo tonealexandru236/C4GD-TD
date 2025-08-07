@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4069990229110319320}
   - component: {fileID: 4414704432367248315}
   - component: {fileID: 7141651449111556660}
+  - component: {fileID: 5456257886690469471}
   m_Layer: 0
   m_Name: Enemy4
   m_TagString: Enemy
@@ -211,3 +212,18 @@ MonoBehaviour:
   money_reward: 4
   die_1: {fileID: 21300000, guid: 5b29454bdcbd44955a13c57498040143, type: 3}
   die_2: {fileID: 0}
+--- !u!114 &5456257886690469471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1380646619097196811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcc8fffd5c1f0d04b88ccb8f4c4858e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ocean_e1: {fileID: 21300000, guid: 5a0a55ef7d2ad81459579cb9e5aac001, type: 3}
+  ocean_a1: {fileID: 21300000, guid: efe447708f19ed64f821840f23fd44a5, type: 3}
+  ocean_a2: {fileID: 0}
