@@ -26,14 +26,19 @@ public class MainButtons : MonoBehaviour
     
     public int balance;
     public int player_health;
+    public int max_health;
 
     public GameObject upgrade_screen;
 
     private void Start()
     {
         instance = this;
+        
+        if(SceneManager.GetActiveScene().name == "Battle1") max_health = 80;
+        else if(SceneManager.GetActiveScene().name == "Battle2") max_health = 60;
+        else if(SceneManager.GetActiveScene().name == "Battle3") max_health = 40;
+        player_health = max_health;
 
-        player_health = 80;
         balance = 320; /// starting is 320
         speedup.SetText("x1");
         Time.timeScale = speed * 1.2f;
@@ -89,7 +94,7 @@ public class MainButtons : MonoBehaviour
     private void Update()
     {
         money.SetText(balance + " $");
-        hpbar.fillAmount = (float)player_health / 80;
+        hpbar.fillAmount = (float)player_health / max_health;
         hpbar_txt.SetText(player_health.ToString());
 
         if (player_health <= 0) SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
