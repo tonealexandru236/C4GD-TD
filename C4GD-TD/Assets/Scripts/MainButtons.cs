@@ -36,9 +36,9 @@ public class MainButtons : MonoBehaviour
     {
         instance = this;
         
-        if(SceneManager.GetActiveScene().name == "Battle1") max_health = 80;
-        else if(SceneManager.GetActiveScene().name == "Battle2") max_health = 60;
-        else if(SceneManager.GetActiveScene().name == "Battle3") max_health = 40;
+        if(SceneManager.GetActiveScene().name == "Battle1") max_health = 120;
+        else if(SceneManager.GetActiveScene().name == "Battle2") max_health = 90;
+        else if(SceneManager.GetActiveScene().name == "Battle3") max_health = 60;
         player_health = max_health;
 
         balance = 3200; /// starting is 320
