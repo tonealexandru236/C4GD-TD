@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -36,12 +37,12 @@ public class Spawn_Manager : MonoBehaviour
         StartCoroutine(wave1());
     }
 
-    private float max_level = 7;
+    private float max_level = 10;
     private float cur_level = 0;
 
     IEnumerator wave1()
     {
-        StartCoroutine(spawn_bloons(boss1, 1f, 1)); yield return new WaitForSeconds(15f);
+        //StartCoroutine(spawn_bloons(boss1, 1f, 1)); yield return new WaitForSeconds(15f);
 
         StartCoroutine(spawn_bloons(enemy4, 1.2f, 8)); yield return new WaitForSeconds(15f);
         StartCoroutine(spawn_bloons(enemy4, 1f, 12)); yield return new WaitForSeconds(15f);
@@ -151,7 +152,7 @@ public class Spawn_Manager : MonoBehaviour
         while (MainButtons.instance.enemies.Count > 0) yield return new WaitForSeconds(1f);
         yield return new WaitForSeconds(5f);
 
-        MainButtons.instance.balance += 120; cur_level++;
+        MainButtons.instance.balance += 130; cur_level++;
         waves_text.SetText("Wave " + cur_level.ToString() + " / " + max_level.ToString());
         StartCoroutine(wave6());
     }
@@ -180,7 +181,7 @@ public class Spawn_Manager : MonoBehaviour
         while (MainButtons.instance.enemies.Count > 0) yield return new WaitForSeconds(1f);
         yield return new WaitForSeconds(5f);
 
-        MainButtons.instance.balance += 140; cur_level++;
+        MainButtons.instance.balance += 160; cur_level++;
         waves_text.SetText("Wave " + cur_level.ToString() + " / " + max_level.ToString());
         //waves_text.SetText("DONE");
         StartCoroutine(wave7());
@@ -218,15 +219,95 @@ public class Spawn_Manager : MonoBehaviour
             yield return new WaitForSeconds(3f);
         }
 
+        //StartCoroutine(spawn_bloons(boss1, 1f, 1));
+
+        while (MainButtons.instance.enemies.Count > 0) yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(5f);
+
+        MainButtons.instance.balance += 190; cur_level++;
+        waves_text.SetText("Wave " + cur_level.ToString() + " / " + max_level.ToString());
+        //waves_text.SetText("DONE");
+        StartCoroutine(wave8());
+    }
+
+    IEnumerator wave8()
+    {
+        /// 25
+        StartCoroutine(spawn_bloons(enemy5, 4f, 6)); yield return new WaitForSeconds(30f);
+
+        StartCoroutine(spawn_bloons(enemy2, 3f, 20));
+        ///30
+        StartCoroutine(spawn_bloons(enemy5, 2.5f, 12)); yield return new WaitForSeconds(2f);
+        StartCoroutine(spawn_bloons(enemy2, 1f, 30)); yield return new WaitForSeconds(33f);
+
+        StartCoroutine(spawn_bloons(enemy4, 4f, 8));
+        //25
+        StartCoroutine(spawn_bloons(enemy5, 2f, 12)); yield return new WaitForSeconds(2f);
+        StartCoroutine(spawn_bloons(enemy1, 2.5f, 10)); yield return new WaitForSeconds(25f);
+
+        while (MainButtons.instance.enemies.Count > 0) yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(5f);
+
+        MainButtons.instance.balance += 220; cur_level++;
+        waves_text.SetText("Wave " + cur_level.ToString() + " / " + max_level.ToString());
+        //waves_text.SetText("DONE");
+        StartCoroutine(wave9());
+    }
+
+    IEnumerator wave9()
+    {
+        /// 45
+        StartCoroutine(spawn_bloons(enemy3, 1.5f, 30)); yield return new WaitForSeconds(5f);
+
+        StartCoroutine(spawn_bloons(enemy1, 1f, 5)); yield return new WaitForSeconds(5f);
+        StartCoroutine(spawn_bloons(enemy5, 1f, 5)); yield return new WaitForSeconds(5f);
+        StartCoroutine(spawn_bloons(enemy3, 0.5f, 6)); yield return new WaitForSeconds(5f);
+
+        StartCoroutine(spawn_bloons(enemy2, 1f, 25)); yield return new WaitForSeconds(5f);
+        StartCoroutine(spawn_bloons(enemy4, 0.8f, 30)); yield return new WaitForSeconds(5f);
+
+        StartCoroutine(spawn_bloons(enemy1, 0.8f, 10)); yield return new WaitForSeconds(6f);
+        StartCoroutine(spawn_bloons(enemy5, 0.8f, 10)); yield return new WaitForSeconds(6f);
+
+        ///45 - 54
+
+        StartCoroutine(spawn_bloons(enemy4, 1f, 30));
+        for (int i = 0; i < 6; i++)
+        {
+            StartCoroutine(spawn_bloons(enemy5, 2.5f, 3)); yield return new WaitForSeconds(1f);
+
+            int type = Random.Range(0, 3);
+            if(type == 0) StartCoroutine(spawn_bloons(enemy3, 0.25f, 24));
+            else if(type == 1) StartCoroutine(spawn_bloons(enemy4, 0.5f, 12));
+            else if(type == 2) StartCoroutine(spawn_bloons(enemy2, 0.15f, 40));
+
+            yield return new WaitForSeconds(8f);
+        }
+
+        while (MainButtons.instance.enemies.Count > 0) yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(5f);
+
+        MainButtons.instance.balance += 250; cur_level++;
+        waves_text.SetText("Wave " + cur_level.ToString() + " / " + max_level.ToString());
+
+        StartCoroutine(wave10());
+    }
+
+    IEnumerator wave10()
+    {
+        /// 120
+        StartCoroutine(spawn_bloons(enemy4, 3f, 40)); yield return new WaitForSeconds(9.7f);
+        StartCoroutine(spawn_bloons(enemy2, 3f, 40)); yield return new WaitForSeconds(9.7f);
+        StartCoroutine(spawn_bloons(enemy3, 3f, 40)); yield return new WaitForSeconds(9.7f);
+        StartCoroutine(spawn_bloons(enemy1, 3f, 40)); yield return new WaitForSeconds(9.7f);
+        StartCoroutine(spawn_bloons(enemy5, 3f, 40)); yield return new WaitForSeconds(9.7f);
+
         StartCoroutine(spawn_bloons(boss1, 1f, 1));
 
         while (MainButtons.instance.enemies.Count > 0) yield return new WaitForSeconds(1f);
         yield return new WaitForSeconds(5f);
 
-        MainButtons.instance.balance += 140; cur_level++;
-        waves_text.SetText("Wave " + cur_level.ToString() + " / " + max_level.ToString());
         waves_text.SetText("DONE");
-        //StartCoroutine(wave7());
     }
 
     IEnumerator spawn_bloons(GameObject type, float cd, int amt)

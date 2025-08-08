@@ -107,7 +107,7 @@ MonoBehaviour:
   m_PlayOnAwake: 1
   m_LoopMode: 0
   m_Method: 0
-  m_Duration: 100
+  m_Duration: 105
   m_MaxSpeed: 0.17494603
   m_EasingMode: 0
   m_AlignmentMode: 0
@@ -230,7 +230,7 @@ MonoBehaviour:
   - {fileID: 4579384247269198852, guid: 4fee56e87c1a5aa428c399efa4faa7a1, type: 3}
   - {fileID: 3157326149812224142, guid: 7b680e21ee7eade42a050392c9424819, type: 3}
   - {fileID: 1380646619097196811, guid: c980d084985eb804f9a1df25794a1407, type: 3}
-  amt: 030000000400000008000000
+  amt: 040000000500000008000000
 --- !u!114 &-6766041800194058074
 MonoBehaviour:
   m_ObjectHideFlags: 0
