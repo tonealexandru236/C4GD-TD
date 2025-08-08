@@ -267,7 +267,7 @@ public class Spawn_Manager : MonoBehaviour
         StartCoroutine(spawn_bloons(enemy4, 0.8f, 30)); yield return new WaitForSeconds(5f);
 
         StartCoroutine(spawn_bloons(enemy1, 0.8f, 10)); yield return new WaitForSeconds(6f);
-        StartCoroutine(spawn_bloons(enemy5, 0.8f, 10)); yield return new WaitForSeconds(6f);
+        StartCoroutine(spawn_bloons(enemy5, 1f, 5)); yield return new WaitForSeconds(6f);
 
         ///45 - 54
 

@@ -41,7 +41,7 @@ public class MainButtons : MonoBehaviour
         else if(SceneManager.GetActiveScene().name == "Battle3") max_health = 40;
         player_health = max_health;
 
-        balance = 320; /// starting is 320
+        balance = 3200; /// starting is 320
         speedup.SetText("x1");
         Time.timeScale = speed * 1.25f;
     }
@@ -213,11 +213,11 @@ public class MainButtons : MonoBehaviour
                 }
                 else if (upg_level.text == "Level 3")
                 {
-                    actual_tower.GetComponent<Shoot>().firerate -= 0.2f;
+                    actual_tower.GetComponent<Shoot>().firerate -= 0.3f;
                 }
                 else if (upg_level.text == "Level 4")
                 {
-                    actual_tower.GetComponent<Shoot>().amt += 1;
+                    actual_tower.GetComponent<Shoot>().amt += 2;
                 }
             }
             else if (actual_tower.GetComponent<SpriteRenderer>().sprite.name.Substring(0, 3) == "app")
@@ -254,12 +254,12 @@ public class MainButtons : MonoBehaviour
                 }
                 else if (upg_level.text == "Level 3")
                 {
-                    actual_tower.GetComponent<Shoot>().range += 1.5f;
-                    actual_tower.transform.GetChild(0).localScale = new Vector3(actual_tower.transform.GetChild(0).localScale.x * 1.35f, actual_tower.transform.GetChild(0).localScale.y * 1.35f, actual_tower.transform.GetChild(0).localScale.z * 1.35f);
+                    actual_tower.GetComponent<Shoot>().range += 2f;
+                    actual_tower.transform.GetChild(0).localScale = new Vector3(actual_tower.transform.GetChild(0).localScale.x * 1.68f, actual_tower.transform.GetChild(0).localScale.y * 1.68f, actual_tower.transform.GetChild(0).localScale.z * 1.68f);
                 }
                 else if (upg_level.text == "Level 4")
                 {
-                    actual_tower.GetComponent<Shoot>().amt += 2;
+                    actual_tower.GetComponent<Shoot>().amt += 3;
                 }
             }
             else if (actual_tower.GetComponent<SpriteRenderer>().sprite.name.Substring(0, 3) == "can")
@@ -286,8 +286,8 @@ public class MainButtons : MonoBehaviour
             }
 
             actual_tower.GetComponent<Tower>().level++;
-            actual_tower.transform.localScale = new Vector3(actual_tower.transform.localScale.x * 1.07f, actual_tower.transform.localScale.y * 1.07f, actual_tower.transform.localScale.z * 1.07f);
-            actual_tower.transform.GetChild(0).localScale = new Vector3(actual_tower.transform.GetChild(0).localScale.x / 1.07f, actual_tower.transform.GetChild(0).localScale.y / 1.07f, actual_tower.transform.GetChild(0).localScale.z / 1.07f);
+            actual_tower.transform.localScale = new Vector3(actual_tower.transform.localScale.x * 1.075f, actual_tower.transform.localScale.y * 1.075f, actual_tower.transform.localScale.z * 1.075f);
+            actual_tower.transform.GetChild(0).localScale = new Vector3(actual_tower.transform.GetChild(0).localScale.x / 1.075f, actual_tower.transform.GetChild(0).localScale.y / 1.075f, actual_tower.transform.GetChild(0).localScale.z / 1.075f);
             StartCoroutine(actual_tower.GetComponent<Tower>().show_update());
         }
         else

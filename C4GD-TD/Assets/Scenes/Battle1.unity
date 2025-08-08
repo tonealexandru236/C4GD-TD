@@ -3054,7 +3054,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Canvas: {fileID: 1259585479}
   Tower: {fileID: 6612670374664722057, guid: 704d4bb986079ac4d82effef01811d0b, type: 3}
-  price: 520
+  price: 540
   pricetag: {fileID: 1448281554}
   did_drag: 0
   show_range: 0
