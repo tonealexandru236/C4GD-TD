@@ -36,8 +36,8 @@ public class MainButtons : MonoBehaviour
     {
         instance = this;
         
-        if(SceneManager.GetActiveScene().name == "Battle1") max_health = 120;
-        else if(SceneManager.GetActiveScene().name == "Battle2") max_health = 90;
+        if(SceneManager.GetActiveScene().name == "Battle1") max_health = 140;
+        else if(SceneManager.GetActiveScene().name == "Battle2") max_health = 80;
         else if(SceneManager.GetActiveScene().name == "Battle3") max_health = 60;
         player_health = max_health;
 
@@ -92,8 +92,8 @@ public class MainButtons : MonoBehaviour
     {
         if (speed == 1) { speed = 2; speedup.SetText("x2"); }
         else if (speed == 2) { speed = 4; speedup.SetText("x4"); }
-        else if (speed == 4) { speed = 1; speedup.SetText("x1"); }
-        //else if (speed == 5) { speed = 1; speedup.SetText("x1"); }
+        else if (speed == 4) { speed = 8; speedup.SetText("x8"); }
+        else if (speed == 8) { speed = 1; speedup.SetText("x1"); }
         Time.timeScale = speed * 1.25f;
     }
 

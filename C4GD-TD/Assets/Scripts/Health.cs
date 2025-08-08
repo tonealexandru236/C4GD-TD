@@ -23,7 +23,10 @@ public class Health : MonoBehaviour
         is_boss = false;
 
         if(gameObject.name.Substring(0, 3) != "Bos")
-            Destroy(gameObject, 28f);
+        {
+            StartCoroutine(destroy_enemy());
+            
+        }
         else
         {
             boss_health = MainButtons.instance.boss_health_bar;
@@ -35,6 +38,13 @@ public class Health : MonoBehaviour
 
         if (act_1 != null)
             gameObject.GetComponent<SpriteRenderer>().sprite = act_1;
+    }
+
+    IEnumerator destroy_enemy()
+    {
+        yield return new WaitForSeconds(28f);
+        MainButtons.instance.enemies.Remove(gameObject);
+        Destroy(gameObject);
     }
 
     void Update()
