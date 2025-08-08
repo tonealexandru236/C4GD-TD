@@ -56,6 +56,8 @@ public class MainButtons : MonoBehaviour
         not_enough.GetComponent<Animator>().Play("cant_place", 0, 0);
     }
 
+    public Image boss_health_bar;
+
     public void game_pause()
     {
         if (Time.timeScale == 0)

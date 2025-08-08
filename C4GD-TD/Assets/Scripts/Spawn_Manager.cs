@@ -19,7 +19,6 @@ public class Spawn_Manager : MonoBehaviour
 
     public TMP_Text waves_text;
 
-    private int wave = 0;
     private GameObject ist;
 
     public void Start()
@@ -42,7 +41,7 @@ public class Spawn_Manager : MonoBehaviour
 
     IEnumerator wave1()
     {
-        //StartCoroutine(spawn_bloons(boss1, 1f, 1)); yield return new WaitForSeconds(15f);
+        StartCoroutine(spawn_bloons(boss1, 1f, 1)); yield return new WaitForSeconds(15f);
 
         StartCoroutine(spawn_bloons(enemy4, 1.2f, 8)); yield return new WaitForSeconds(15f);
         StartCoroutine(spawn_bloons(enemy4, 1f, 12)); yield return new WaitForSeconds(15f);

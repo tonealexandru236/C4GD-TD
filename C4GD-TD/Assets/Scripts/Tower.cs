@@ -90,15 +90,15 @@ public class Tower : MonoBehaviour
             actual_name = "Banana Shooter"; actual_description = "Costly with high damage and range. Perfect for your average boss.";
             if (level == 1) { actual_upg = "Decrease attack speed by 0.3s"; actual_cost = 140; }
             else if (level == 2) { actual_upg = "Shoots 3 bananas at once"; actual_cost = 420; }
-            else if (level == 3) { actual_upg = "Increase Range by 3"; actual_cost = 320; }
+            else if (level == 3) { actual_upg = "Increase Range by 3"; actual_cost = 340; }
             else if (level == 4) { actual_upg = "Shoots 5 bananas at once"; actual_cost = 560; }
         }
         else if (GetComponent<SpriteRenderer>().sprite.name.Substring(0, 3) == "can")
         {
             actual_name = "Candy Piercer"; actual_description = "Short range with deadly projectiles. Master the art of the cane to make them pierce.";
             if (level == 1) { actual_upg = "Increase Range by 1"; actual_cost = 120; }
-            else if (level == 2) { actual_upg = "Attacks now pierce through 1 enemy"; actual_cost = 340; }
-            else if (level == 3) { actual_upg = "Decrease attack speed by 0.1s"; actual_cost = 260; }
+            else if (level == 2) { actual_upg = "Attacks now pierce through 1 enemy"; actual_cost = 360; }
+            else if (level == 3) { actual_upg = "Decrease attack speed by 0.1s"; actual_cost = 300; }
             else if (level == 4) { actual_upg = "Shoots 2 canes at once"; actual_cost = 420; }
         }
 

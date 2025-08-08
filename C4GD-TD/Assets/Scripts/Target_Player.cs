@@ -46,6 +46,7 @@ public class Target_Player : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy") && (has_splash || pierces >= 1))
         {
             collision.gameObject.GetComponent<Health>().hp -= damage;
+            if(collision!= null && collision.GetComponent<Animator>() != null && collision.name.Substring(0, 3) != "Bos") collision.GetComponent<Animator>().Play("hit_feedback", 0, 0);
             pierces--;
 
             if (has_splash) Destroy(gameObject, 0.1f);

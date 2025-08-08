@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Splines;
+using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
@@ -13,22 +14,40 @@ public class Health : MonoBehaviour
 
     public Sprite act_1;
 
+    private Image boss_health;
+    private bool is_boss;
+    private int maxhp;
+
     private void Start()
     {
-        if(gameObject.name.Substring(0, 3) != "bos")
-            Destroy(gameObject, 30f);
+        is_boss = false;
+
+        if(gameObject.name.Substring(0, 3) != "Bos")
+            Destroy(gameObject, 28f);
+        else
+        {
+            boss_health = MainButtons.instance.boss_health_bar;
+            Debug.Log(MainButtons.instance.boss_health_bar);
+            boss_health.gameObject.transform.parent.GetComponent<Animator>().Play("bhp_up", 0, 0);
+            is_boss = true;
+            maxhp = hp;
+        }
 
         if (act_1 != null)
-        gameObject.GetComponent<SpriteRenderer>().sprite = act_1;
+            gameObject.GetComponent<SpriteRenderer>().sprite = act_1;
     }
 
     void Update()
     {
-        if(hp <= 0 && hp >= -100)
+        if (is_boss) boss_health.fillAmount = (float)hp / (float)maxhp;
+
+        if (hp <= 0 && hp >= -100)
         {
             gameObject.GetComponent<SplineAnimate>().Pause();
 
             hp = -200;
+
+            if (is_boss) boss_health.transform.parent.GetComponent<Animator>().Play("bhp_down", 0, 0);
 
             StartCoroutine(die_animation());
             

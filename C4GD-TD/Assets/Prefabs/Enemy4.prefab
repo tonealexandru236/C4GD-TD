@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4069990229110319320}
   - component: {fileID: 7141651449111556660}
   - component: {fileID: 5456257886690469471}
+  - component: {fileID: 3150282768397576564}
   m_Layer: 0
   m_Name: Enemy4
   m_TagString: Enemy
@@ -206,3 +207,24 @@ MonoBehaviour:
   ocean_e1: {fileID: 21300000, guid: 5a0a55ef7d2ad81459579cb9e5aac001, type: 3}
   ocean_a1: {fileID: 21300000, guid: efe447708f19ed64f821840f23fd44a5, type: 3}
   ocean_a2: {fileID: 0}
+--- !u!95 &3150282768397576564
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1380646619097196811}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bd9c0836f05bb5a4187a24318df353c2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
