@@ -32,9 +32,12 @@ public class Drag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
             ist = Instantiate(gameObject, Canvas.transform);
 
-            GameObject range = ist.transform.GetChild(0).gameObject;
-            Color col = range.GetComponent<Image>().color;
-            col.a = 0.2f; range.GetComponent<Image>().color = col;
+            if (ist.transform.childCount != 0)
+            {
+                GameObject range = ist.transform.GetChild(0).gameObject;
+                Color col = range.GetComponent<Image>().color;
+                col.a = 0.2f; range.GetComponent<Image>().color = col;
+            }
 
             Destroy(ist.GetComponent<Drag>());
             ist.GetComponent<Image>().color = new Color(ist.GetComponent<Image>().color.r, ist.GetComponent<Image>().color.g, ist.GetComponent<Image>().color.b, 0.3f);
@@ -63,7 +66,7 @@ public class Drag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             twr.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             twr.transform.position = new Vector3(twr.transform.position.x, twr.transform.position.y, 1);
 
-            MainButtons.instance.ranges.Add(twr.transform.GetChild(0).gameObject);
+            if(twr.transform.childCount != 0) MainButtons.instance.ranges.Add(twr.transform.GetChild(0).gameObject);
 
             twr.GetComponent<Tower>().price = price;
         }

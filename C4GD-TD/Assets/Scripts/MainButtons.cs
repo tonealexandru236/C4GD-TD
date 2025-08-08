@@ -284,6 +284,27 @@ public class MainButtons : MonoBehaviour
                     actual_tower.GetComponent<Shoot>().amt += 1;
                 }
             }
+            else if (actual_tower.GetComponent<SpriteRenderer>().sprite.name.Substring(0, 3) == "Coc")
+            {
+                if (upg_level.text == "Level 1")
+                {
+                    actual_tower.GetComponent<CoconutFarm>().money += 3;
+
+                }
+                else if (upg_level.text == "Level 2")
+                {
+                    actual_tower.GetComponent<CoconutFarm>().cooldown -= 1;
+                }
+                else if (upg_level.text == "Level 3")
+                {
+                    actual_tower.GetComponent<CoconutFarm>().money += 3;
+                }
+                else if (upg_level.text == "Level 4")
+                {
+                    actual_tower.GetComponent<CoconutFarm>().cooldown -= 0.5f;
+                    coconut_bonus += 50;
+                }
+            }
 
             actual_tower.GetComponent<Tower>().level++;
             actual_tower.transform.localScale = new Vector3(actual_tower.transform.localScale.x * 1.075f, actual_tower.transform.localScale.y * 1.075f, actual_tower.transform.localScale.z * 1.075f);
@@ -293,4 +314,6 @@ public class MainButtons : MonoBehaviour
         else
             not_enough_money();
     }
+
+    public float coconut_bonus = 0;
 }

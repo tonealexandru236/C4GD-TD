@@ -21,8 +21,11 @@ public class Tower : MonoBehaviour
         refund_price = price / 2;
 
         level = 1; //is_upg_open = false;
-        firerate = GetComponent<Shoot>().firerate;
-        range = GetComponent<Shoot>().range;
+        if (GetComponent<Shoot>() != null)
+        {
+            firerate = GetComponent<Shoot>().firerate;
+            range = GetComponent<Shoot>().range;
+        }
 
         upgrade_screen = GameObject.Find("Canvas").transform.Find("Upgrades").gameObject;
 
@@ -50,7 +53,7 @@ public class Tower : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().color.a >= 0.95f)
+        if (gameObject.transform.childCount != 0 && gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().color.a >= 0.95f)
             upgrade_screen.GetComponent<Animator>().Play("upgrades_right", 0, 0);
         MainButtons.instance.dis_all_ranges();
 
@@ -100,6 +103,14 @@ public class Tower : MonoBehaviour
             else if (level == 2) { actual_upg = "Attacks now pierce through 1 enemy"; actual_cost = 380; }
             else if (level == 3) { actual_upg = "Decrease attack speed by 0.1s"; actual_cost = 320; }
             else if (level == 4) { actual_upg = "Shoots 2 canes at once"; actual_cost = 420; }
+        }
+        else if (GetComponent<SpriteRenderer>().sprite.name.Substring(0, 3) == "Coc")
+        {
+            actual_name = "Coconut Farm"; actual_description = "Farms coconuts. And money. yum.";
+            if (level == 1) { actual_upg = "Increase Coconut revenue by 3"; actual_cost = 120; }
+            else if (level == 2) { actual_upg = "Increase production by 25%"; actual_cost = 200; }
+            else if (level == 3) { actual_upg = "Increase Coconut revenue by 3"; actual_cost = 160; }
+            else if (level == 4) { actual_upg = "You now get 50$ at the end of every wave and increase production by 16%"; actual_cost = 260; }
         }
 
         MainButtons.instance.Upgrade_screen(GetComponent<SpriteRenderer>().sprite, actual_name, level, actual_upg, actual_cost, gameObject, actual_description);
