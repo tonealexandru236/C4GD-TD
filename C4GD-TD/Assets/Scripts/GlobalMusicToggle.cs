@@ -1,15 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GlobalMusicToggle : MonoBehaviour
-
 {
     private AudioSource audioSource;
+    public TMP_Text On;
 
     void Awake()
     {
         // Make sure only one music source exists in the scene
+        /*
         AudioSource[] allAudioSources = FindObjectsOfType<AudioSource>();
         foreach (AudioSource source in allAudioSources)
         {
@@ -18,6 +20,7 @@ public class GlobalMusicToggle : MonoBehaviour
                 source.Stop(); // Stop other audio sources
             }
         }
+        */
 
         audioSource = GetComponent<AudioSource>();
 
@@ -36,6 +39,13 @@ public class GlobalMusicToggle : MonoBehaviour
 
             // Save the mute state
             PlayerPrefs.SetInt("MusicMuted", audioSource.mute ? 1 : 0);
+
+            if (On != null)
+            {
+                if (On.text == "Music On") On.SetText("Music Off");
+                else On.SetText("Music On");
+            }
+
             PlayerPrefs.Save();
         }
     }
