@@ -22,14 +22,13 @@ public class GlobalMusicToggle : MonoBehaviour
         }
         */
 
+        audioSource = GetComponent<AudioSource>();
+
         if (On != null)
         {
             if (audioSource.mute == true) On.SetText("Music Off");
             else On.SetText("Music On");
         }
-
-
-        audioSource = GetComponent<AudioSource>();
 
         // Apply saved mute setting
         bool isMuted = PlayerPrefs.GetInt("MusicMuted", 0) == 1;
@@ -44,6 +43,12 @@ public class GlobalMusicToggle : MonoBehaviour
         if (audioSource != null)
         {
             audioSource.mute = !audioSource.mute;
+
+            if (On != null)
+            {
+                if (audioSource.mute == true) On.SetText("Music Off");
+                else On.SetText("Music On");
+            }
 
             // Save the mute state
             PlayerPrefs.SetInt("MusicMuted", audioSource.mute ? 1 : 0);
