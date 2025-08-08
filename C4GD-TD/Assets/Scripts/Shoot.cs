@@ -47,7 +47,7 @@ public class Shoot : MonoBehaviour
                     {
                         if (shootAudio != null)
                         {
-                            shootAudio.pitch = Time.timeScale + Random.Range(-0.2f, 0.2f);
+                            shootAudio.pitch = Time.timeScale + Random.Range(-0.4f, 0.4f) - 0.2f;
                             shootAudio.Play();
                         }
 

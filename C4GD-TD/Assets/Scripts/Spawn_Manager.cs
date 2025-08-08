@@ -296,6 +296,8 @@ public class Spawn_Manager : MonoBehaviour
         }
         else
         {
+            buff+=3;
+            waves_text.SetText("Freeplay " + (buff/3).ToString());
             int level = Random.Range(0, 2);
             if (level == 0) StartCoroutine(wave9());
             else StartCoroutine(wave10());
@@ -317,9 +319,9 @@ public class Spawn_Manager : MonoBehaviour
         yield return new WaitForSeconds(5f);
 
         MainButtons.instance.balance += 300 + (int)MainButtons.instance.coconut_bonus; cur_level++;
-        waves_text.SetText("FREEPLAY");
 
-        if(buff < 10) buff++;
+        if(buff < 30) buff+=3;
+        waves_text.SetText("Freeplay " + (buff / 3).ToString());
 
         int level = Random.Range(0, 2);
         if(level == 0) StartCoroutine(wave9());

@@ -276,7 +276,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1720b48f41a7a46c9b2c3ca73c4da489, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -719,6 +719,7 @@ MonoBehaviour:
   upg_refund: {fileID: 1155104957}
   upgrade_but: {fileID: 259406705}
   actual_tower: {fileID: 0}
+  coconut_bonus: 0
 --- !u!114 &134156073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -752,6 +753,7 @@ MonoBehaviour:
   boss1: {fileID: 3617575045659956070, guid: 015743e3019479e44858241be8a752be, type: 3}
   path: {fileID: 1692135791}
   waves_text: {fileID: 830691676}
+  buff: 0
 --- !u!114 &134156075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1067,7 +1069,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 50, y: 20}
+  m_SizeDelta: {x: 70, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &190495769
 GameObject:
@@ -1972,7 +1974,7 @@ Transform:
   m_GameObject: {fileID: 565403901}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.9, y: 4.3, z: 0}
+  m_LocalPosition: {x: 5, y: 4.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2021,7 +2023,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6, y: 3}
+  m_Size: {x: 7, y: 3}
   m_EdgeRadius: 0
 --- !u!1 &639983547
 GameObject:
@@ -2880,7 +2882,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 48, y: 280}
+  m_AnchoredPosition: {x: -20, y: 280}
   m_SizeDelta: {x: 165, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &847935038
@@ -7364,7 +7366,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 80
+  m_text: XXX
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -8048,7 +8050,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Canvas: {fileID: 1259585479}
-  Tower: {fileID: 1329625794236672651, guid: 315dff3141cd5d74ea62823939888b28, type: 3}
+  Tower: {fileID: 3378665065332689940, guid: 8d7e966319fb12a4c8e9294dcde84b58, type: 3}
   price: 400
   pricetag: {fileID: 1915124650}
   did_drag: 0

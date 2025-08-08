@@ -41,7 +41,7 @@ public class MainButtons : MonoBehaviour
         else if(SceneManager.GetActiveScene().name == "Battle3") max_health = 60;
         player_health = max_health;
 
-        balance = 3200; /// starting is 320
+        balance = 320; /// starting is 320
         speedup.SetText("x1");
         Time.timeScale = speed * 1.25f;
     }
@@ -284,11 +284,11 @@ public class MainButtons : MonoBehaviour
                     actual_tower.GetComponent<Shoot>().amt += 1;
                 }
             }
-            else if (actual_tower.GetComponent<SpriteRenderer>().sprite.name.Substring(0, 3) == "Coc")
+            else if (actual_tower.GetComponent<SpriteRenderer>().sprite.name.Substring(0, 3) == "coc")
             {
                 if (upg_level.text == "Level 1")
                 {
-                    actual_tower.GetComponent<CoconutFarm>().money += 3;
+                    actual_tower.GetComponent<CoconutFarm>().money += 2;
 
                 }
                 else if (upg_level.text == "Level 2")
@@ -302,7 +302,7 @@ public class MainButtons : MonoBehaviour
                 else if (upg_level.text == "Level 4")
                 {
                     actual_tower.GetComponent<CoconutFarm>().cooldown -= 0.5f;
-                    coconut_bonus += 50;
+                    coconut_bonus += 30;
                 }
             }
 
